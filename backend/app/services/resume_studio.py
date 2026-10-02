@@ -133,14 +133,21 @@ def generate_with_gemini(prompt: str) -> str:
         gen_config["thinkingConfig"] = {"thinkingBudget": 0}
     try:
         with httpx.Client(timeout=120) as client:
-            resp = client.post(
-                url,
-                params={"key": settings.gemini_api_key},
-                json={
-                    "contents": [{"parts": [{"text": prompt}]}],
-                    "generationConfig": gen_config,
-                },
-            )
+            # Google answers 503 ("high demand") and 429 in short spikes; a couple
+            # of spaced retries turn most of those into a normal response.
+            for attempt in range(3):
+                resp = client.post(
+                    url,
+                    params={"key": settings.gemini_api_key},
+                    json={
+                        "contents": [{"parts": [{"text": prompt}]}],
+                        "generationConfig": gen_config,
+                    },
+                )
+                if resp.status_code not in (429, 500, 503) or attempt == 2:
+                    break
+                import time
+                time.sleep(4 * (attempt + 1))
     except Exception as e:
         raise RuntimeError(f"Could not reach Gemini: {e}") from e
 
