@@ -225,6 +225,10 @@ export default function App() {
         usa_count: browseable.length,
         remote_count: browseable.filter((j) => /remote/i.test(j.remote_status || '')).length,
         high_score_count: browseable.filter((j) => (j.new_grad_fit ?? 0) >= 65).length,
+        // Was never computed, so the "Strong New-Grad Fits" card always read 0.
+        strong_new_grad_count: browseable.filter((j) => (j.new_grad_fit ?? 0) >= 75).length,
+        strict_entry_count: browseable.filter((j) => j.is_entry_level).length,
+        candidate_friendly_count: browseable.filter((j) => j.is_candidate_friendly && !j.is_entry_level).length,
         saved_count: userState.countByStatus('saved'),
         applied_count: userState.countByStatus('applied'),
         total_companies: corpus.companies.filter((c) => c.enabled).length,
