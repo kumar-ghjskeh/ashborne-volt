@@ -128,6 +128,8 @@ EXCLUDE_FALSE_FRIENDS = _rx(
     r"consumer|information|cyber|radiation|brand|corrosion|fall|identity)\s+protection\b",
     # "Grid" / "utility" / "instrumentation" in computing
     r"\bgrid computing\b", r"\butility (software|computing|player)\b",
+    # Networking and security programmes that borrow EE words.
+    r"\bcontrol plane\b", r"\bdata plane\b", r"\bsdn\b", r"\bprogram protection\b",
     # "Automation" that is chip-design or test tooling, not industrial automation
     r"\b(electronic )?design automation\b", r"\btest automation\b", r"\bmaterials specialist\b",
     r"\bobservability\b", r"\btelemetry (software|platform)\b",
@@ -158,6 +160,16 @@ EXCLUDE_OTHER_DISCIPLINES = _rx(
     r"\bprocess engineer\b", r"\bpackaging\b", r"\bmaterials? engineer\b",
     r"\btransportation (planner|engineer)\b(?!.*electric)",
     r"\btraffic engineer\b", r"\bsurvey", r"\bhydraulic",
+    r"\bthermal\b", r"\bpropulsion\b", r"\bstructures\b", r"\bfluids?\b", r"\bcryogenic",
+    r"\bmaterials\b",
+)
+
+# Electrical words that DO rescue an other-discipline title ("Electrical &
+# Mechanical Engineer"). Deliberately excludes the generic "hardware engineer".
+STRONG_ELECTRICAL = _rx(
+    r"\belectrical\b", r"\belectric\b", r"\belectronics?\b(?!.*materials)", r"\bee\b",
+    r"\be\s*&\s*i\b", r"\belectro[\s-]?mechanical\b", r"\bpcba?\b", r"\bavionics\b",
+    r"\bpower electronics\b", r"\bcontrols?\b", r"\binstrumentation\b",
 )
 
 # Software roles. Rejected unless the title also carries a controls/power
@@ -527,7 +539,8 @@ def classify(title: str, description: str = "") -> Verdict:
         return Verdict(False, OUT_OF_SCOPE, "False friend (EE word, non-EE role)")
     if EXCLUDE_NON_ENGINEERING.search(t):
         return Verdict(False, OUT_OF_SCOPE, "Non-engineering role")
-    if EXCLUDE_TRADES.search(t) and not re.search(r"\bengineer", t, re.I):
+    # "Engineering Technician" is a technician: only the noun "engineer" rescues.
+    if EXCLUDE_TRADES.search(t) and not re.search(r"\bengineers?\b", t, re.I):
         return Verdict(False, OUT_OF_SCOPE, "Trade / technician role")
     # Chip vocabulary never appears in grid, plant or building titles, so those
     # categories are exempt ("Substation Physical Design Engineer" is a power job).
@@ -535,8 +548,10 @@ def classify(title: str, description: str = "") -> Verdict:
         return Verdict(False, OUT_OF_SCOPE, "Chip design (out of EE-jobs scope)")
     if EXCLUDE_SOFTWARE.search(t) and not domain_software:
         return Verdict(False, OUT_OF_SCOPE, "Software role")
-    # "Civil Engineer - Substations" names a power word but is civil work.
-    if EXCLUDE_OTHER_DISCIPLINES.search(t) and not has_electrical:
+    # "Civil Engineer - Substations" names a power word but is civil work. The
+    # generic "hardware engineer" signal does not rescue a mechanical title
+    # ("Passive Thermal Hardware Engineer"); a genuinely electrical word does.
+    if EXCLUDE_OTHER_DISCIPLINES.search(t) and not STRONG_ELECTRICAL.search(t):
         return Verdict(False, OUT_OF_SCOPE, "Other engineering discipline")
     if not ENGINEERING_NOUN.search(t):
         return Verdict(False, OUT_OF_SCOPE, "Not an engineering title")

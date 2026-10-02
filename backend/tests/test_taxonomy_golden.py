@@ -242,6 +242,22 @@ GOLDEN: list[tuple[str, str | None]] = [
     ("Machine Learning Automation Engineer", None),
     ("Data Center Security Engineer - WIDS", None),
 
+    # ── From the first live corpus (2026-10-02) ─────────────────────────────
+    ("Electrical Harness Design Engineer II", TRANSPORT),
+    ("Avionics Hardware Engineer II – Lunar Permanence", TRANSPORT),
+    ("Principal Antenna Engineer", RF),
+    ("Test Engineer Sr - E3", EMC),
+    ("Transmission Line Engineer Intern - Grid (Summer 2027)", POWER),
+    ("Staff Motor Controls Engineer", CONTROLS),
+    ("Signal & Power Integrity Electrical Engineer, Sr", EMC),
+    ("MEP Electrical Engineer", INFRASTRUCTURE),
+    ("Senior Program Protection Engineer (Embedded Software Engineer)", None),
+    ("Senior Engineering Manager, SDN Control Plane", None),
+    ("Mk1 Senior Passive Thermal Hardware Engineer", None),
+    ("Senior Spacecraft Propulsion Systems Engineer I", None),
+    ("Lead Engineering Technician | Vehicle Systems (Powertrain)", None),
+    ("Mechanical & Electrical Engineer", DESIGN),
+
     # ── False friends: an EE word, not an EE engineering job ─────────────────
     ("Power BI Developer", None),
     ("Power BI Engineer", None),
