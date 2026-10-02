@@ -66,7 +66,7 @@ def classify_role_flags(title: str, description: str = "") -> dict[str, bool]:
     if v.relevant and v.category in tx.CATEGORIES:
         flags[f"is_{_slug(v.category)}"] = True
     for cat, terms in tx.DESCRIPTION_CATEGORY_TERMS.items():
-        if sum(1 for t in terms if t in d) >= tx.DESCRIPTION_CATEGORY_MIN_HITS + 1:
+        if len(tx.term_hits(d, terms)) >= tx.DESCRIPTION_CATEGORY_MIN_HITS + 1:
             flags[f"is_{_slug(cat)}"] = True
     flags["is_software_only"] = v.reason == "Software role"
     flags["is_hardware_software_codesign"] = False
@@ -137,7 +137,7 @@ def calculate_match_score(
         add("Electrical engineering title", 25, "electrical")
 
     # +20  real EE content in the description (not boilerplate)
-    ee_hits = [t for t in tx.EE_DESCRIPTION_TERMS if t in f" {desc_l} "]
+    ee_hits = tx.term_hits(desc_l, tx.EE_DESCRIPTION_TERMS)
     if len(ee_hits) >= tx.EE_DESCRIPTION_MIN_HITS:
         add("EE methods & tools in description", 20)
         for t in ee_hits[:6]:

@@ -490,8 +490,27 @@ class Verdict:
     needs_description: bool = False
 
 
+_TERM_RX: dict[str, re.Pattern[str]] = {}
+
+
+def _term_rx(term: str) -> re.Pattern[str]:
+    """Whole-word matcher for a vocabulary term. Plain substring tests counted
+    "nec" in "connect", "emi" in "semiconductor", "ups" in "groups" and "rf" in
+    "performance" — inflating the evidence used to accept ambiguous titles."""
+    rx = _TERM_RX.get(term)
+    if rx is None:
+        rx = re.compile(r"(?<![a-z0-9])" + re.escape(term.strip()) + r"(?![a-z0-9])")
+        _TERM_RX[term] = rx
+    return rx
+
+
+def term_hits(text: str, terms: tuple[str, ...]) -> list[str]:
+    """Distinct vocabulary terms present in already-lowercased text, whole words only."""
+    return [t for t in dict.fromkeys(terms) if _term_rx(t).search(text)]
+
+
 def _count_terms(text: str, terms: tuple[str, ...]) -> list[str]:
-    return [t for t in terms if t in text]
+    return term_hits(text, terms)
 
 
 def category_from_description(description: str) -> str | None:
