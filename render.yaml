@@ -1,0 +1,40 @@
+# Render Blueprint — Ashborne Volt API (résumé parsing/matching, prompt
+# assembly, Gemini generation, PDF compile, push subscriptions).
+#
+# Jobs are NOT served from here: they are static files on Vercel, written by the
+# GitHub Actions scrape. This service only answers the handful of routes in
+# backend/app/security.py PUBLIC_ROUTES; everything else is a 404.
+#
+# Database: Neon (free, persistent Postgres) in AWS us-east-1, set as
+# DATABASE_URL in the Render dashboard. Region below is Virginia so the API and
+# the database sit next to each other.
+
+services:
+  - type: web
+    name: ashborne-volt-api
+    runtime: python
+    plan: free
+    region: virginia
+    rootDir: backend
+    # Exact versions from the lock, never fresh resolution at deploy time.
+    buildCommand: "pip install -r requirements.lock.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips='*'"
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.4"
+      - key: DATABASE_URL
+        sync: false   # Neon pooled connection string — paste in the dashboard
+      - key: GEMINI_API_KEY
+        sync: false   # Google AI Studio key — enables the "Generate with Gemini" buttons
+      - key: VAPID_PRIVATE_KEY
+        sync: false   # Web Push private key (public half is in app/config.py)
+      - key: CORS_ORIGINS
+        value: "https://ashborne-volt.vercel.app"
+      - key: ENFORCE_ROUTE_ALLOWLIST
+        value: "true"
+      - key: RUN_SCRAPE_ON_STARTUP
+        value: "false"
+      - key: ENABLE_SCHEDULER
+        value: "false"

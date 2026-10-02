@@ -1,0 +1,37 @@
+# Upper bounds are deliberate. Every entry here used to be an open-ended ">=",
+# which means a brand-new major release of ANY of them lands in the next CI run
+# and the next Render deploy with zero commits on our side — the failure then
+# looks like "it broke by itself". The ceilings below are set one major above
+# what is in use today, so patches and minors still flow in automatically but a
+# breaking major (pydantic 3, apscheduler 4, …) can never arrive unannounced.
+#
+# To take a new major: raise the ceiling deliberately, deploy, watch one scrape.
+fastapi>=0.110.0,<1.0
+uvicorn[standard]>=0.27.0,<1.0
+sqlmodel>=0.0.16,<0.1
+apscheduler>=3.10.0,<4.0
+httpx[asyncio]>=0.26.0,<1.0
+pydantic>=2.5.0,<3.0
+pydantic-settings>=2.1.0,<3.0
+pyyaml>=6.0,<7.0
+python-dotenv>=1.0.0,<2.0
+aiofiles>=23.2.0,<27.0
+pytz>=2023.3
+notion-client>=2.2.1,<4.0
+aiosmtplib>=3.0.0,<6.0
+beautifulsoup4>=4.12.0,<5.0
+
+# Web Push (VAPID) for free saved-search alerts
+pywebpush>=1.14.0,<3.0
+
+# Resume parsing (Phase 3)
+pymupdf>=1.23.0,<2.0
+python-docx>=1.1.0,<2.0
+python-multipart>=0.0.9,<1.0
+
+# Production database driver (Render/Heroku Postgres). Harmless locally.
+psycopg2-binary>=2.9.9,<3.0
+
+# Optional: only needed for the legacy generic HTML scraper (disabled by
+# default). Install separately if you re-enable browser-based scraping:
+#   pip install playwright selectolax && python -m playwright install chromium

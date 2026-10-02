@@ -1,0 +1,13 @@
+{
+  "name": "Ashborne Volt",
+  "short_name": "Volt",
+  "description": "USA electrical engineering jobs — power, controls, renewables, power electronics, RF — verified and résumé-matched.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0E1A",
+  "theme_color": "#2563EB",
+  "icons": [
+    { "src": "/volt-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/volt-logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,2031 @@
+# ════════════════════════════════════════════════════════════════════════════
+#  Ashborne Volt — company catalog
+#
+#  Every company here is listed on the Companies page. Those with `enabled: true`
+#  (or `engine: cf` / `engine: browser`) are scraped by the GitHub Actions
+#  workflow; the rest are a directory entry with a careers link.
+#
+#  Fields
+#    name             display name (unique)
+#    sector           Utility | Grid & Power OEM | Industrial & Automation |
+#                     EPC & Consulting | Renewables & Storage |
+#                     Data Centers & Facilities | Aerospace & Defense |
+#                     Automotive & EV | Rail & Transit | RF & Communications |
+#                     Electronics & Semiconductors
+#    category         short descriptor shown under the name
+#    hq               headquarters (city, state)
+#    priority         S | A | B | C  (employer tier; drives ranking a little)
+#    careers_url      public careers page (always set — the directory links to it)
+#    ats_platform     workday | greenhouse | lever | ashby | smartrecruiters |
+#                     icims | oracle | eightfold | phenom | jobs2web | avature |
+#                     jobvite | radancy | amazon | generic
+#    engine           "" (httpx, default) | cf (curl_cffi) | browser (Playwright)
+#    enabled          scrape it?
+#
+#  Adapter keys (exact names — the adapters read these, nothing else):
+#    workday:         workday_tenant, workday_instance, workday_career_site
+#    greenhouse:      greenhouse_board        lever: lever_company
+#    ashby:           ashby_org               smartrecruiters: smartrecruiters_company
+#    icims:           icims_host              oracle: oracle_host + oracle_site
+#    eightfold:       eightfold_tenant + eightfold_domain
+#
+#  Before enabling a company: verify the board belongs to THIS company. An
+#  answering board can be a different organisation with the same short name.
+# ════════════════════════════════════════════════════════════════════════════
+companies:
+
+  # ── Aerospace & Defense ───────────────────────────────────────────────
+  - name: "Boeing"
+    sector: "Aerospace & Defense"
+    category: "Aircraft & defense"
+    hq: "Arlington, VA"
+    priority: "S"
+    careers_url: "https://jobs.boeing.com/"
+    ats_platform: "workday"
+    workday_tenant: "boeing"
+    workday_instance: "wd1"
+    workday_career_site: "EXTERNAL_CAREERS"
+    enabled: true
+
+  - name: "Lockheed Martin"
+    sector: "Aerospace & Defense"
+    category: "Defense & space"
+    hq: "Bethesda, MD"
+    priority: "S"
+    careers_url: "https://www.lockheedmartinjobs.com/"
+    ats_platform: "eightfold"
+    eightfold_tenant: "lockheedmartin"
+    eightfold_domain: "lockheedmartin.com"
+    enabled: true
+
+  - name: "Northrop Grumman"
+    sector: "Aerospace & Defense"
+    category: "Defense & space"
+    hq: "Falls Church, VA"
+    priority: "S"
+    careers_url: "https://www.northropgrumman.com/careers"
+    ats_platform: "eightfold"
+    eightfold_tenant: "ngc"
+    eightfold_domain: "ngc.com"
+    enabled: true
+
+  - name: "RTX"
+    sector: "Aerospace & Defense"
+    category: "Raytheon, Collins Aerospace, Pratt & Whitney"
+    hq: "Arlington, VA"
+    priority: "S"
+    careers_url: "https://careers.rtx.com/"
+    ats_platform: "workday"
+    workday_tenant: "globalhr"
+    workday_instance: "wd5"
+    workday_career_site: "REC_RTX_Ext_Gateway"
+    enabled: true
+
+  - name: "L3Harris"
+    sector: "Aerospace & Defense"
+    category: "Defense electronics & space"
+    hq: "Melbourne, FL"
+    priority: "A"
+    careers_url: "https://careers.l3harris.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "General Dynamics"
+    sector: "Aerospace & Defense"
+    category: "Defense, marine, IT"
+    hq: "Reston, VA"
+    priority: "A"
+    careers_url: "https://www.gd.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "BAE Systems"
+    sector: "Aerospace & Defense"
+    category: "Defense electronics"
+    hq: "Falls Church, VA"
+    priority: "A"
+    careers_url: "https://jobs.baesystems.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "GE Aerospace"
+    sector: "Aerospace & Defense"
+    category: "Aircraft engines & avionics"
+    hq: "Cincinnati, OH"
+    priority: "A"
+    careers_url: "https://careers.geaerospace.com/"
+    ats_platform: "workday"
+    workday_tenant: "geaerospace"
+    workday_instance: "wd5"
+    workday_career_site: "GE_ExternalSite"
+    enabled: true
+
+  - name: "SpaceX"
+    sector: "Aerospace & Defense"
+    category: "Launch, spacecraft, Starlink"
+    hq: "Hawthorne, CA"
+    priority: "S"
+    careers_url: "https://www.spacex.com/careers/"
+    ats_platform: "greenhouse"
+    greenhouse_board: "spacex"
+    enabled: true
+
+  - name: "Blue Origin"
+    sector: "Aerospace & Defense"
+    category: "Launch & spacecraft"
+    hq: "Kent, WA"
+    priority: "A"
+    careers_url: "https://www.blueorigin.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "blueorigin"
+    workday_instance: "wd5"
+    workday_career_site: "BlueOrigin"
+    enabled: true
+
+  - name: "Rocket Lab"
+    sector: "Aerospace & Defense"
+    category: "Launch & spacecraft"
+    hq: "Long Beach, CA"
+    priority: "B"
+    careers_url: "https://www.rocketlabusa.com/careers/"
+    ats_platform: "greenhouse"
+    greenhouse_board: "rocketlab"
+    enabled: true
+
+  - name: "Joby Aviation"
+    sector: "Aerospace & Defense"
+    category: "Electric aircraft (eVTOL)"
+    hq: "Santa Cruz, CA"
+    priority: "B"
+    careers_url: "https://www.jobyaviation.com/careers/"
+    ats_platform: "icims"
+    icims_host: "careers-jobyaviation.icims.com"
+    enabled: true
+
+  - name: "Archer Aviation"
+    sector: "Aerospace & Defense"
+    category: "Electric aircraft (eVTOL)"
+    hq: "San Jose, CA"
+    priority: "B"
+    careers_url: "https://www.archer.com/careers"
+    ats_platform: "greenhouse"
+    greenhouse_board: "archer56"
+    enabled: true
+
+  - name: "Anduril"
+    sector: "Aerospace & Defense"
+    category: "Defense technology"
+    hq: "Costa Mesa, CA"
+    priority: "A"
+    careers_url: "https://www.anduril.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Textron"
+    sector: "Aerospace & Defense"
+    category: "Aviation & defense"
+    hq: "Providence, RI"
+    priority: "B"
+    careers_url: "https://www.textron.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Sierra Nevada Corporation"
+    sector: "Aerospace & Defense"
+    category: "Aerospace & defense"
+    hq: "Sparks, NV"
+    priority: "C"
+    careers_url: "https://www.sncorp.com/careers/"
+    ats_platform: "workday"
+    workday_tenant: "snc"
+    workday_instance: "wd1"
+    workday_career_site: "SNC_External_Career_Site"
+    enabled: true
+
+  - name: "Moog"
+    sector: "Aerospace & Defense"
+    category: "Motion control (aero & industrial)"
+    hq: "East Aurora, NY"
+    priority: "C"
+    careers_url: "https://www.moog.com/careers.html"
+    ats_platform: "workday"
+    workday_tenant: "moog"
+    workday_instance: "wd5"
+    workday_career_site: "MOOG_External_Career_Site"
+    enabled: true
+
+  - name: "Curtiss-Wright"
+    sector: "Aerospace & Defense"
+    category: "Defense & power electronics"
+    hq: "Davidson, NC"
+    priority: "C"
+    careers_url: "https://www.curtisswright.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "curtisswright"
+    workday_instance: "wd1"
+    workday_career_site: "CW_External_Career_Site"
+    enabled: true
+
+  # ── Automotive & EV ───────────────────────────────────────────────────
+  - name: "Tesla"
+    sector: "Automotive & EV"
+    category: "EVs, energy storage, solar"
+    hq: "Austin, TX"
+    priority: "S"
+    careers_url: "https://www.tesla.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Rivian"
+    sector: "Automotive & EV"
+    category: "Electric vehicles"
+    hq: "Irvine, CA"
+    priority: "A"
+    careers_url: "https://rivian.com/careers"
+    ats_platform: "jibe"
+    jibe_host: "careers.rivian.com"
+    enabled: true
+
+  - name: "Lucid Motors"
+    sector: "Automotive & EV"
+    category: "Electric vehicles"
+    hq: "Newark, CA"
+    priority: "B"
+    careers_url: "https://lucidmotors.com/careers"
+    ats_platform: "greenhouse"
+    greenhouse_board: "lucidmotors"
+    enabled: true
+
+  - name: "General Motors"
+    sector: "Automotive & EV"
+    category: "Vehicles & EV platforms"
+    hq: "Detroit, MI"
+    priority: "A"
+    careers_url: "https://search-careers.gm.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Ford Motor Company"
+    sector: "Automotive & EV"
+    category: "Vehicles & EVs"
+    hq: "Dearborn, MI"
+    priority: "A"
+    careers_url: "https://corporate.ford.com/careers.html"
+    ats_platform: "eightfold"
+    eightfold_tenant: "ford"
+    eightfold_domain: "ford.com"
+    enabled: true
+
+  - name: "Stellantis"
+    sector: "Automotive & EV"
+    category: "Vehicles (US)"
+    hq: "Auburn Hills, MI"
+    priority: "B"
+    careers_url: "https://www.stellantis.com/en/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Toyota North America"
+    sector: "Automotive & EV"
+    category: "Vehicles & battery manufacturing"
+    hq: "Plano, TX"
+    priority: "B"
+    careers_url: "https://careers.toyota.com/"
+    ats_platform: "workday"
+    workday_tenant: "toyota"
+    workday_instance: "wd503"
+    workday_career_site: "TMNA"
+    enabled: true
+
+  - name: "Aptiv"
+    sector: "Automotive & EV"
+    category: "Vehicle electrical architecture"
+    hq: "Troy, MI"
+    priority: "B"
+    careers_url: "https://www.aptiv.com/en/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "BorgWarner"
+    sector: "Automotive & EV"
+    category: "EV propulsion & power electronics"
+    hq: "Auburn Hills, MI"
+    priority: "B"
+    careers_url: "https://www.borgwarner.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "ChargePoint"
+    sector: "Automotive & EV"
+    category: "EV charging networks"
+    hq: "Campbell, CA"
+    priority: "B"
+    careers_url: "https://www.chargepoint.com/about/careers"
+    ats_platform: "greenhouse"
+    greenhouse_board: "chargepoint"
+    enabled: true
+
+  - name: "Zoox"
+    sector: "Automotive & EV"
+    category: "Autonomous EVs"
+    hq: "Foster City, CA"
+    priority: "B"
+    careers_url: "https://zoox.com/careers"
+    ats_platform: "lever"
+    lever_company: "zoox"
+    enabled: true
+
+  - name: "Waymo"
+    sector: "Automotive & EV"
+    category: "Autonomous driving"
+    hq: "Mountain View, CA"
+    priority: "A"
+    careers_url: "https://careers.withwaymo.com/"
+    ats_platform: "greenhouse"
+    greenhouse_board: "waymo"
+    enabled: true
+
+  # ── Data Centers & Facilities ─────────────────────────────────────────
+  - name: "Vertiv"
+    sector: "Data Centers & Facilities"
+    category: "Critical power & thermal for data centers"
+    hq: "Westerville, OH"
+    priority: "A"
+    careers_url: "https://www.vertiv.com/en-us/about/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Equinix"
+    sector: "Data Centers & Facilities"
+    category: "Data center operator"
+    hq: "Redwood City, CA"
+    priority: "A"
+    careers_url: "https://careers.equinix.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Digital Realty"
+    sector: "Data Centers & Facilities"
+    category: "Data center operator"
+    hq: "Austin, TX"
+    priority: "A"
+    careers_url: "https://www.digitalrealty.com/about/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Vantage Data Centers"
+    sector: "Data Centers & Facilities"
+    category: "Hyperscale data centers"
+    hq: "Denver, CO"
+    priority: "B"
+    careers_url: "https://vantage-dc.com/careers/"
+    ats_platform: "workday"
+    workday_tenant: "vantagedc"
+    workday_instance: "wd1"
+    workday_career_site: "Vantage"
+    enabled: true
+
+  - name: "QTS Data Centers"
+    sector: "Data Centers & Facilities"
+    category: "Data center operator"
+    hq: "Overland Park, KS"
+    priority: "B"
+    careers_url: "https://qtsdatacenters.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "qtsdatacenters"
+    workday_instance: "wd5"
+    workday_career_site: "qts"
+    enabled: true
+
+  - name: "Aligned Data Centers"
+    sector: "Data Centers & Facilities"
+    category: "Data center operator"
+    hq: "Dallas, TX"
+    priority: "B"
+    careers_url: "https://aligneddc.com/careers/"
+    ats_platform: "workday"
+    workday_tenant: "aligneddc"
+    workday_instance: "wd12"
+    workday_career_site: "aligneddc"
+    enabled: true
+
+  - name: "CyrusOne"
+    sector: "Data Centers & Facilities"
+    category: "Data center operator"
+    hq: "Dallas, TX"
+    priority: "B"
+    careers_url: "https://www.cyrusone.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "cyrusone"
+    workday_instance: "wd1"
+    workday_career_site: "CyrusOneCareerPortal"
+    enabled: true
+
+  - name: "Stack Infrastructure"
+    sector: "Data Centers & Facilities"
+    category: "Data center operator"
+    hq: "Denver, CO"
+    priority: "C"
+    careers_url: "https://www.stackinfra.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Compass Datacenters"
+    sector: "Data Centers & Facilities"
+    category: "Data center developer"
+    hq: "Dallas, TX"
+    priority: "C"
+    careers_url: "https://www.compassdatacenters.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "EdgeConneX"
+    sector: "Data Centers & Facilities"
+    category: "Data center developer"
+    hq: "Herndon, VA"
+    priority: "C"
+    careers_url: "https://www.edgeconnex.com/careers/"
+    ats_platform: "greenhouse"
+    greenhouse_board: "edgeconnex"
+    enabled: true
+
+  - name: "Switch"
+    sector: "Data Centers & Facilities"
+    category: "Data center operator"
+    hq: "Las Vegas, NV"
+    priority: "C"
+    careers_url: "https://www.switch.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "CoreWeave"
+    sector: "Data Centers & Facilities"
+    category: "AI cloud & data centers"
+    hq: "Livingston, NJ"
+    priority: "B"
+    careers_url: "https://www.coreweave.com/careers"
+    ats_platform: "greenhouse"
+    greenhouse_board: "coreweave"
+    enabled: true
+
+  - name: "Crusoe"
+    sector: "Data Centers & Facilities"
+    category: "AI data centers & energy"
+    hq: "Denver, CO"
+    priority: "B"
+    careers_url: "https://www.crusoe.ai/careers"
+    ats_platform: "ashby"
+    ashby_org: "crusoe"
+    enabled: true
+
+  - name: "Rosendin"
+    sector: "Data Centers & Facilities"
+    category: "Electrical contractor (engineering roles)"
+    hq: "San Jose, CA"
+    priority: "C"
+    careers_url: "https://rosendin.com/careers/"
+    ats_platform: "workday"
+    workday_tenant: "rosendin"
+    workday_instance: "wd1"
+    workday_career_site: "Careers"
+    enabled: true
+
+  - name: "Amazon"
+    sector: "Data Centers & Facilities"
+    category: "AWS data center & infrastructure engineering"
+    hq: "Seattle, WA"
+    priority: "S"
+    careers_url: "https://www.amazon.jobs/"
+    ats_platform: "generic"
+    enabled: false
+
+  # ── EPC & Consulting ──────────────────────────────────────────────────
+  - name: "Burns & McDonnell"
+    sector: "EPC & Consulting"
+    category: "Engineering, architecture, construction"
+    hq: "Kansas City, MO"
+    priority: "S"
+    careers_url: "https://www.burnsmcd.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Black & Veatch"
+    sector: "EPC & Consulting"
+    category: "Power, water & telecom EPC"
+    hq: "Overland Park, KS"
+    priority: "S"
+    careers_url: "https://www.bv.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Sargent & Lundy"
+    sector: "EPC & Consulting"
+    category: "Power engineering consultancy"
+    hq: "Chicago, IL"
+    priority: "A"
+    careers_url: "https://www.sargentlundy.com/careers/"
+    ats_platform: "icims"
+    icims_host: "careers-sargentlundy.icims.com"
+    enabled: true
+
+  - name: "WSP"
+    sector: "EPC & Consulting"
+    category: "Engineering consultancy (incl. POWER Engineers)"
+    hq: "New York, NY"
+    priority: "A"
+    careers_url: "https://www.wsp.com/en-us/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "HDR"
+    sector: "EPC & Consulting"
+    category: "Engineering & architecture"
+    hq: "Omaha, NE"
+    priority: "A"
+    careers_url: "https://www.hdrinc.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Jacobs"
+    sector: "EPC & Consulting"
+    category: "Engineering & infrastructure"
+    hq: "Dallas, TX"
+    priority: "A"
+    careers_url: "https://careers.jacobs.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "AECOM"
+    sector: "EPC & Consulting"
+    category: "Infrastructure consulting"
+    hq: "Dallas, TX"
+    priority: "A"
+    careers_url: "https://aecom.jobs/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Stantec"
+    sector: "EPC & Consulting"
+    category: "Engineering & design"
+    hq: "Edmonton, AB / US offices"
+    priority: "A"
+    careers_url: "https://www.stantec.com/en/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Kimley-Horn"
+    sector: "EPC & Consulting"
+    category: "Engineering consultancy"
+    hq: "Raleigh, NC"
+    priority: "B"
+    careers_url: "https://www.kimley-horn.com/careers/"
+    ats_platform: "icims"
+    icims_host: "jobs-kimley-horn.icims.com"
+    enabled: true
+
+  - name: "Mott MacDonald"
+    sector: "EPC & Consulting"
+    category: "Engineering consultancy"
+    hq: "Iselin, NJ"
+    priority: "B"
+    careers_url: "https://www.mottmac.com/en-US/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Kiewit"
+    sector: "EPC & Consulting"
+    category: "Construction & engineering"
+    hq: "Omaha, NE"
+    priority: "A"
+    careers_url: "https://www.kiewit.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Mortenson"
+    sector: "EPC & Consulting"
+    category: "Construction (renewables, data centers)"
+    hq: "Minneapolis, MN"
+    priority: "B"
+    careers_url: "https://www.mortenson.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Bechtel"
+    sector: "EPC & Consulting"
+    category: "EPC (energy, infrastructure)"
+    hq: "Reston, VA"
+    priority: "A"
+    careers_url: "https://jobs.bechtel.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Fluor"
+    sector: "EPC & Consulting"
+    category: "EPC"
+    hq: "Irving, TX"
+    priority: "B"
+    careers_url: "https://www.fluor.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Worley"
+    sector: "EPC & Consulting"
+    category: "Energy & resources engineering"
+    hq: "Houston, TX"
+    priority: "B"
+    careers_url: "https://www.worley.com/en/careers"
+    ats_platform: "eightfold"
+    eightfold_tenant: "worley"
+    eightfold_domain: "worley.com"
+    enabled: true
+
+  - name: "Ulteig"
+    sector: "EPC & Consulting"
+    category: "Power & renewables engineering"
+    hq: "Fargo, ND"
+    priority: "B"
+    careers_url: "https://www.ulteig.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "TRC Companies"
+    sector: "EPC & Consulting"
+    category: "Power delivery engineering"
+    hq: "Windsor, CT"
+    priority: "B"
+    careers_url: "https://www.trccompanies.com/careers/"
+    ats_platform: "jibe"
+    jibe_host: "careers.trccompanies.com"
+    enabled: true
+
+  - name: "Quanta Services"
+    sector: "EPC & Consulting"
+    category: "Utility & renewable infrastructure"
+    hq: "Houston, TX"
+    priority: "A"
+    careers_url: "https://www.quantaservices.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "MasTec"
+    sector: "EPC & Consulting"
+    category: "Infrastructure construction"
+    hq: "Coral Gables, FL"
+    priority: "C"
+    careers_url: "https://www.mastec.com/careers/"
+    ats_platform: "jibe"
+    jibe_host: "careers.mastec.com"
+    enabled: true
+
+  - name: "Primoris"
+    sector: "EPC & Consulting"
+    category: "Utility & energy construction"
+    hq: "Dallas, TX"
+    priority: "C"
+    careers_url: "https://www.prim.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "prim"
+    workday_instance: "wd108"
+    workday_career_site: "Primoris"
+    enabled: true
+
+  - name: "Leidos"
+    sector: "EPC & Consulting"
+    category: "Engineering incl. power delivery; defense"
+    hq: "Reston, VA"
+    priority: "B"
+    careers_url: "https://careers.leidos.com/"
+    ats_platform: "workday"
+    workday_tenant: "leidos"
+    workday_instance: "wd5"
+    workday_career_site: "External"
+    enabled: true
+
+  - name: "Dewberry"
+    sector: "EPC & Consulting"
+    category: "Engineering consultancy"
+    hq: "Fairfax, VA"
+    priority: "C"
+    careers_url: "https://www.dewberry.com/careers"
+    ats_platform: "icims"
+    icims_host: "careers-dewberry.icims.com"
+    enabled: true
+
+  - name: "Salas O'Brien"
+    sector: "EPC & Consulting"
+    category: "MEP & power engineering"
+    hq: "Irvine, CA"
+    priority: "C"
+    careers_url: "https://salasobrien.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Syska Hennessy"
+    sector: "EPC & Consulting"
+    category: "MEP engineering"
+    hq: "New York, NY"
+    priority: "C"
+    careers_url: "https://www.syska.com/careers/"
+    ats_platform: "greenhouse"
+    greenhouse_board: "syskahennessy"
+    enabled: true
+
+  - name: "Henderson Engineers"
+    sector: "EPC & Consulting"
+    category: "MEP engineering"
+    hq: "Lenexa, KS"
+    priority: "C"
+    careers_url: "https://www.hendersonengineers.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "IMEG"
+    sector: "EPC & Consulting"
+    category: "MEP engineering"
+    hq: "Rock Island, IL"
+    priority: "C"
+    careers_url: "https://www.imegcorp.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Affiliated Engineers"
+    sector: "EPC & Consulting"
+    category: "MEP engineering"
+    hq: "Madison, WI"
+    priority: "C"
+    careers_url: "https://www.aeieng.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  # ── Electronics & Semiconductors ──────────────────────────────────────
+  - name: "Texas Instruments"
+    sector: "Electronics & Semiconductors"
+    category: "Analog & power ICs (applications, systems roles)"
+    hq: "Dallas, TX"
+    priority: "A"
+    careers_url: "https://careers.ti.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Analog Devices"
+    sector: "Electronics & Semiconductors"
+    category: "Analog, power & RF (applications, systems roles)"
+    hq: "Wilmington, MA"
+    priority: "A"
+    careers_url: "https://www.analog.com/en/about-adi/careers.html"
+    ats_platform: "workday"
+    workday_tenant: "analogdevices"
+    workday_instance: "wd1"
+    workday_career_site: "External"
+    enabled: true
+
+  - name: "Infineon Technologies"
+    sector: "Electronics & Semiconductors"
+    category: "Power semiconductors (US)"
+    hq: "El Segundo, CA"
+    priority: "B"
+    careers_url: "https://www.infineon.com/cms/en/careers/"
+    ats_platform: "eightfold"
+    eightfold_tenant: "infineon"
+    eightfold_domain: "infineon.com"
+    enabled: true
+
+  - name: "Vicor"
+    sector: "Electronics & Semiconductors"
+    category: "Power modules"
+    hq: "Andover, MA"
+    priority: "C"
+    careers_url: "https://www.vicorpower.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Advanced Energy"
+    sector: "Electronics & Semiconductors"
+    category: "Power conversion"
+    hq: "Denver, CO"
+    priority: "C"
+    careers_url: "https://www.advancedenergy.com/en-us/about/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "TE Connectivity"
+    sector: "Electronics & Semiconductors"
+    category: "Connectors & sensors"
+    hq: "Berwyn, PA"
+    priority: "B"
+    careers_url: "https://careers.te.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Littelfuse"
+    sector: "Electronics & Semiconductors"
+    category: "Circuit protection & power semis"
+    hq: "Chicago, IL"
+    priority: "C"
+    careers_url: "https://www.littelfuse.com/about-us/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  # ── Grid & Power OEM ──────────────────────────────────────────────────
+  - name: "GE Vernova"
+    sector: "Grid & Power OEM"
+    category: "Grid, gas, wind & electrification equipment"
+    hq: "Cambridge, MA"
+    priority: "S"
+    careers_url: "https://careers.gevernova.com/"
+    ats_platform: "workday"
+    workday_tenant: "gevernova"
+    workday_instance: "wd5"
+    workday_career_site: "Vernova_ExternalSite"
+    enabled: true
+
+  - name: "Hitachi Energy"
+    sector: "Grid & Power OEM"
+    category: "HV equipment, HVDC, grid automation"
+    hq: "Raleigh, NC"
+    priority: "S"
+    careers_url: "https://www.hitachienergy.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "hitachi"
+    workday_instance: "wd1"
+    workday_career_site: "hitachi"
+    enabled: true
+
+  - name: "Siemens Energy"
+    sector: "Grid & Power OEM"
+    category: "Grid technologies & generation"
+    hq: "Orlando, FL"
+    priority: "S"
+    careers_url: "https://jobs.siemens-energy.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Schneider Electric"
+    sector: "Grid & Power OEM"
+    category: "Energy management & automation"
+    hq: "Andover, MA"
+    priority: "S"
+    careers_url: "https://www.se.com/us/en/about-us/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Eaton"
+    sector: "Grid & Power OEM"
+    category: "Power management equipment"
+    hq: "Dublin, Ireland / Cleveland, OH"
+    priority: "S"
+    careers_url: "https://www.eaton.com/us/en-us/company/careers.html"
+    ats_platform: "eightfold"
+    eightfold_tenant: "eaton"
+    eightfold_domain: "eaton.com"
+    enabled: true
+
+  - name: "Hubbell"
+    sector: "Grid & Power OEM"
+    category: "Utility & electrical products"
+    hq: "Shelton, CT"
+    priority: "A"
+    careers_url: "https://www.hubbell.com/hubbell/en/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Schweitzer Engineering Laboratories"
+    sector: "Grid & Power OEM"
+    category: "Protective relays & grid automation"
+    hq: "Pullman, WA"
+    priority: "S"
+    careers_url: "https://selinc.com/careers/"
+    ats_platform: "workday"
+    workday_tenant: "selinc"
+    workday_instance: "wd1"
+    workday_career_site: "SEL"
+    enabled: true
+
+  - name: "S&C Electric"
+    sector: "Grid & Power OEM"
+    category: "Switching & protection for utilities"
+    hq: "Chicago, IL"
+    priority: "A"
+    careers_url: "https://www.sandc.com/en/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Mitsubishi Electric Power Products"
+    sector: "Grid & Power OEM"
+    category: "HV substation equipment"
+    hq: "Warrendale, PA"
+    priority: "B"
+    careers_url: "https://www.meppi.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Toshiba International"
+    sector: "Grid & Power OEM"
+    category: "Motors, drives, UPS, T&D"
+    hq: "Houston, TX"
+    priority: "B"
+    careers_url: "https://www.toshiba.com/tic/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Itron"
+    sector: "Grid & Power OEM"
+    category: "Metering & grid edge"
+    hq: "Liberty Lake, WA"
+    priority: "B"
+    careers_url: "https://na.itron.com/company/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Landis+Gyr"
+    sector: "Grid & Power OEM"
+    category: "Smart metering"
+    hq: "Alpharetta, GA"
+    priority: "B"
+    careers_url: "https://www.landisgyr.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Generac"
+    sector: "Grid & Power OEM"
+    category: "Generators & energy storage"
+    hq: "Waukesha, WI"
+    priority: "B"
+    careers_url: "https://www.generac.com/about-us/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Cummins"
+    sector: "Grid & Power OEM"
+    category: "Engines, power generation, electrification"
+    hq: "Columbus, IN"
+    priority: "A"
+    careers_url: "https://www.cummins.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Caterpillar"
+    sector: "Grid & Power OEM"
+    category: "Power generation & electrification"
+    hq: "Irving, TX"
+    priority: "B"
+    careers_url: "https://careers.caterpillar.com/"
+    ats_platform: "workday"
+    workday_tenant: "cat"
+    workday_instance: "wd5"
+    workday_career_site: "CaterpillarCareers"
+    enabled: true
+
+  - name: "nVent"
+    sector: "Grid & Power OEM"
+    category: "Electrical enclosures & protection"
+    hq: "London / Minneapolis, MN"
+    priority: "B"
+    careers_url: "https://www.nvent.com/en-us/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Southwire"
+    sector: "Grid & Power OEM"
+    category: "Wire & cable"
+    hq: "Carrollton, GA"
+    priority: "B"
+    careers_url: "https://www.southwire.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Powell Industries"
+    sector: "Grid & Power OEM"
+    category: "Switchgear & power control"
+    hq: "Houston, TX"
+    priority: "B"
+    careers_url: "https://www.powellind.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "WEG"
+    sector: "Grid & Power OEM"
+    category: "Motors, drives, transformers"
+    hq: "Duluth, GA"
+    priority: "C"
+    careers_url: "https://www.weg.net/institutional/US/en/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Prolec GE"
+    sector: "Grid & Power OEM"
+    category: "Power transformers"
+    hq: "Goldsboro, NC"
+    priority: "C"
+    careers_url: "https://www.prolecge.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  # ── Industrial & Automation ───────────────────────────────────────────
+  - name: "Siemens"
+    sector: "Industrial & Automation"
+    category: "Smart infrastructure & digital industries"
+    hq: "Washington, DC"
+    priority: "S"
+    careers_url: "https://jobs.siemens.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "ABB"
+    sector: "Industrial & Automation"
+    category: "Electrification, motion & automation"
+    hq: "Cary, NC"
+    priority: "S"
+    careers_url: "https://careers.abb/global/en"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Rockwell Automation"
+    sector: "Industrial & Automation"
+    category: "Industrial automation & control"
+    hq: "Milwaukee, WI"
+    priority: "S"
+    careers_url: "https://www.rockwellautomation.com/en-us/company/careers.html"
+    ats_platform: "workday"
+    workday_tenant: "rockwellautomation"
+    workday_instance: "wd1"
+    workday_career_site: "External_Rockwell_Automation"
+    enabled: true
+
+  - name: "Emerson"
+    sector: "Industrial & Automation"
+    category: "Process automation & controls"
+    hq: "St. Louis, MO"
+    priority: "A"
+    careers_url: "https://www.emerson.com/en-us/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Honeywell"
+    sector: "Industrial & Automation"
+    category: "Automation, aerospace, building technologies"
+    hq: "Charlotte, NC"
+    priority: "A"
+    careers_url: "https://careers.honeywell.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Regal Rexnord"
+    sector: "Industrial & Automation"
+    category: "Motors & power transmission"
+    hq: "Milwaukee, WI"
+    priority: "B"
+    careers_url: "https://www.regalrexnord.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "regalrexnord"
+    workday_instance: "wd1"
+    workday_career_site: "Careers"
+    enabled: true
+
+  - name: "Parker Hannifin"
+    sector: "Industrial & Automation"
+    category: "Motion control & electrification"
+    hq: "Cleveland, OH"
+    priority: "B"
+    careers_url: "https://www.parker.com/us/en/careers.html"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Danfoss"
+    sector: "Industrial & Automation"
+    category: "Drives & power conversion"
+    hq: "Baltimore, MD"
+    priority: "B"
+    careers_url: "https://www.danfoss.com/en/about-danfoss/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Mitsubishi Electric Automation"
+    sector: "Industrial & Automation"
+    category: "Factory automation"
+    hq: "Vernon Hills, IL"
+    priority: "C"
+    careers_url: "https://us.mitsubishielectric.com/fa/en/about-us/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Yokogawa"
+    sector: "Industrial & Automation"
+    category: "Process control & instrumentation"
+    hq: "Sugar Land, TX"
+    priority: "C"
+    careers_url: "https://www.yokogawa.com/us/about/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Endress+Hauser"
+    sector: "Industrial & Automation"
+    category: "Process instrumentation"
+    hq: "Greenwood, IN"
+    priority: "C"
+    careers_url: "https://www.us.endress.com/en/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  # ── RF & Communications ───────────────────────────────────────────────
+  - name: "Qualcomm"
+    sector: "RF & Communications"
+    category: "Wireless & RF"
+    hq: "San Diego, CA"
+    priority: "S"
+    careers_url: "https://careers.qualcomm.com/"
+    ats_platform: "eightfold"
+    eightfold_tenant: "qualcomm"
+    eightfold_domain: "qualcomm.com"
+    enabled: true
+
+  - name: "Qorvo"
+    sector: "RF & Communications"
+    category: "RF front-end"
+    hq: "Greensboro, NC"
+    priority: "A"
+    careers_url: "https://careers.qorvo.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Skyworks Solutions"
+    sector: "RF & Communications"
+    category: "RF & analog"
+    hq: "Irvine, CA"
+    priority: "A"
+    careers_url: "https://www.skyworksinc.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Keysight Technologies"
+    sector: "RF & Communications"
+    category: "RF & electronic test"
+    hq: "Santa Rosa, CA"
+    priority: "A"
+    careers_url: "https://jobs.keysight.com/"
+    ats_platform: "jibe"
+    jibe_host: "jobs.keysight.com"
+    enabled: true
+
+  - name: "Rohde & Schwarz USA"
+    sector: "RF & Communications"
+    category: "RF test & communications"
+    hq: "Columbia, MD"
+    priority: "C"
+    careers_url: "https://www.rohde-schwarz.com/us/career/career_229080.html"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Ericsson"
+    sector: "RF & Communications"
+    category: "Wireless networks (US)"
+    hq: "Plano, TX"
+    priority: "B"
+    careers_url: "https://www.ericsson.com/en/careers"
+    ats_platform: "eightfold"
+    eightfold_tenant: "ericsson"
+    eightfold_domain: "ericsson.com"
+    enabled: true
+
+  - name: "Nokia"
+    sector: "RF & Communications"
+    category: "Networks (US)"
+    hq: "Dallas, TX"
+    priority: "B"
+    careers_url: "https://www.nokia.com/about-us/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Verizon"
+    sector: "RF & Communications"
+    category: "Wireless carrier (RF engineering)"
+    hq: "New York, NY"
+    priority: "A"
+    careers_url: "https://www.verizon.com/about/careers"
+    ats_platform: "workday"
+    workday_tenant: "verizon"
+    workday_instance: "wd12"
+    workday_career_site: "verizon-careers"
+    enabled: true
+
+  - name: "AT&T"
+    sector: "RF & Communications"
+    category: "Wireless carrier (RF engineering)"
+    hq: "Dallas, TX"
+    priority: "A"
+    careers_url: "https://www.att.jobs/"
+    ats_platform: "workday"
+    workday_tenant: "att"
+    workday_instance: "wd1"
+    workday_career_site: "ATTGeneral"
+    enabled: true
+
+  - name: "T-Mobile"
+    sector: "RF & Communications"
+    category: "Wireless carrier (RF engineering)"
+    hq: "Bellevue, WA"
+    priority: "A"
+    careers_url: "https://careers.t-mobile.com/"
+    ats_platform: "workday"
+    workday_tenant: "tmobile"
+    workday_instance: "wd1"
+    workday_career_site: "External"
+    enabled: true
+
+  - name: "Crown Castle"
+    sector: "RF & Communications"
+    category: "Towers & fiber"
+    hq: "Houston, TX"
+    priority: "C"
+    careers_url: "https://www.crowncastle.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Viasat"
+    sector: "RF & Communications"
+    category: "Satellite communications"
+    hq: "Carlsbad, CA"
+    priority: "B"
+    careers_url: "https://careers.viasat.com/"
+    ats_platform: "jibe"
+    jibe_host: "careers.viasat.com"
+    enabled: true
+
+  - name: "Motorola Solutions"
+    sector: "RF & Communications"
+    category: "Land-mobile radio & public safety"
+    hq: "Chicago, IL"
+    priority: "B"
+    careers_url: "https://www.motorolasolutions.com/en_us/about/careers.html"
+    ats_platform: "workday"
+    workday_tenant: "motorolasolutions"
+    workday_instance: "wd5"
+    workday_career_site: "Careers"
+    enabled: true
+
+  - name: "Garmin"
+    sector: "RF & Communications"
+    category: "GNSS & avionics"
+    hq: "Olathe, KS"
+    priority: "B"
+    careers_url: "https://careers.garmin.com/"
+    ats_platform: "jibe"
+    jibe_host: "careers.garmin.com"
+    enabled: true
+
+  - name: "Ciena"
+    sector: "RF & Communications"
+    category: "Optical networking"
+    hq: "Hanover, MD"
+    priority: "B"
+    careers_url: "https://www.ciena.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "ciena"
+    workday_instance: "wd5"
+    workday_career_site: "Careers"
+    enabled: true
+
+  - name: "CommScope"
+    sector: "RF & Communications"
+    category: "Antennas & network infrastructure"
+    hq: "Hickory, NC"
+    priority: "C"
+    careers_url: "https://jobs.commscope.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Mercury Systems"
+    sector: "RF & Communications"
+    category: "Defense RF & processing"
+    hq: "Andover, MA"
+    priority: "C"
+    careers_url: "https://www.mrcy.com/company/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  # ── Rail & Transit ────────────────────────────────────────────────────
+  - name: "Wabtec"
+    sector: "Rail & Transit"
+    category: "Locomotives & rail electronics"
+    hq: "Pittsburgh, PA"
+    priority: "A"
+    careers_url: "https://www.wabteccorp.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Siemens Mobility"
+    sector: "Rail & Transit"
+    category: "Rail signalling & rolling stock"
+    hq: "New York, NY"
+    priority: "A"
+    careers_url: "https://jobs.siemens.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Alstom"
+    sector: "Rail & Transit"
+    category: "Rolling stock & signalling"
+    hq: "New York, NY"
+    priority: "B"
+    careers_url: "https://www.alstom.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Hitachi Rail"
+    sector: "Rail & Transit"
+    category: "Rail systems & signalling"
+    hq: "Pittsburgh, PA"
+    priority: "B"
+    careers_url: "https://www.hitachirail.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "HNTB"
+    sector: "Rail & Transit"
+    category: "Transportation infrastructure engineering"
+    hq: "Kansas City, MO"
+    priority: "B"
+    careers_url: "https://www.hntb.com/careers/"
+    ats_platform: "workday"
+    workday_tenant: "hntb"
+    workday_instance: "wd5"
+    workday_career_site: "HNTB_Careers"
+    enabled: true
+
+  - name: "STV"
+    sector: "Rail & Transit"
+    category: "Transportation engineering"
+    hq: "New York, NY"
+    priority: "C"
+    careers_url: "https://www.stvinc.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "stvinc"
+    workday_instance: "wd5"
+    workday_career_site: "stv"
+    enabled: true
+
+  - name: "Amtrak"
+    sector: "Rail & Transit"
+    category: "Passenger rail"
+    hq: "Washington, DC"
+    priority: "B"
+    careers_url: "https://careers.amtrak.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  # ── Renewables & Storage ──────────────────────────────────────────────
+  - name: "Invenergy"
+    sector: "Renewables & Storage"
+    category: "Wind, solar & storage developer"
+    hq: "Chicago, IL"
+    priority: "A"
+    careers_url: "https://invenergy.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Ørsted"
+    sector: "Renewables & Storage"
+    category: "Offshore wind (US)"
+    hq: "Boston, MA"
+    priority: "A"
+    careers_url: "https://orsted.us/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "RWE Clean Energy"
+    sector: "Renewables & Storage"
+    category: "Renewables developer & operator"
+    hq: "Austin, TX"
+    priority: "A"
+    careers_url: "https://us.rwe.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "EDF power solutions"
+    sector: "Renewables & Storage"
+    category: "Renewables developer"
+    hq: "San Diego, CA"
+    priority: "B"
+    careers_url: "https://www.edf-re.com/careers/"
+    ats_platform: "icims"
+    icims_host: "careers-edf-re.icims.com"
+    enabled: true
+
+  - name: "Enel North America"
+    sector: "Renewables & Storage"
+    category: "Renewables & grid"
+    hq: "Andover, MA"
+    priority: "B"
+    careers_url: "https://www.enelnorthamerica.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Pattern Energy"
+    sector: "Renewables & Storage"
+    category: "Wind & transmission developer"
+    hq: "San Francisco, CA"
+    priority: "B"
+    careers_url: "https://patternenergy.com/careers/"
+    ats_platform: "icims"
+    icims_host: "careers-patternenergy.icims.com"
+    enabled: true
+
+  - name: "Apex Clean Energy"
+    sector: "Renewables & Storage"
+    category: "Wind & solar developer"
+    hq: "Charlottesville, VA"
+    priority: "B"
+    careers_url: "https://www.apexcleanenergy.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Intersect Power"
+    sector: "Renewables & Storage"
+    category: "Clean power developer"
+    hq: "San Francisco, CA"
+    priority: "C"
+    careers_url: "https://www.intersectpower.com/careers"
+    ats_platform: "lever"
+    lever_company: "intersect"
+    enabled: true
+
+  - name: "Fluence"
+    sector: "Renewables & Storage"
+    category: "Grid-scale energy storage"
+    hq: "Arlington, VA"
+    priority: "A"
+    careers_url: "https://fluenceenergy.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Enphase Energy"
+    sector: "Renewables & Storage"
+    category: "Microinverters & storage"
+    hq: "Fremont, CA"
+    priority: "A"
+    careers_url: "https://enphase.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "SolarEdge"
+    sector: "Renewables & Storage"
+    category: "Inverters & storage"
+    hq: "Milpitas, CA"
+    priority: "B"
+    careers_url: "https://www.solaredge.com/us/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "First Solar"
+    sector: "Renewables & Storage"
+    category: "PV module manufacturer"
+    hq: "Tempe, AZ"
+    priority: "B"
+    careers_url: "https://www.firstsolar.com/en/About-Us/Careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Nextracker"
+    sector: "Renewables & Storage"
+    category: "Solar trackers"
+    hq: "Fremont, CA"
+    priority: "B"
+    careers_url: "https://www.nextracker.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Array Technologies"
+    sector: "Renewables & Storage"
+    category: "Solar trackers"
+    hq: "Albuquerque, NM"
+    priority: "C"
+    careers_url: "https://arraytechinc.com/careers/"
+    ats_platform: "workday"
+    workday_tenant: "arraytechinc"
+    workday_instance: "wd5"
+    workday_career_site: "Array_Careers"
+    enabled: true
+
+  - name: "Form Energy"
+    sector: "Renewables & Storage"
+    category: "Long-duration storage"
+    hq: "Somerville, MA"
+    priority: "B"
+    careers_url: "https://formenergy.com/careers/"
+    ats_platform: "ashby"
+    ashby_org: "formenergy"
+    enabled: true
+
+  - name: "Wärtsilä Energy Storage"
+    sector: "Renewables & Storage"
+    category: "Energy storage & engines"
+    hq: "Houston, TX"
+    priority: "C"
+    careers_url: "https://www.wartsila.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Clearway Energy"
+    sector: "Renewables & Storage"
+    category: "Renewables owner-operator"
+    hq: "San Francisco, CA"
+    priority: "C"
+    careers_url: "https://www.clearwayenergy.com/careers/"
+    ats_platform: "greenhouse"
+    greenhouse_board: "clearway"
+    enabled: true
+
+  - name: "Ameresco"
+    sector: "Renewables & Storage"
+    category: "Energy efficiency & renewables"
+    hq: "Framingham, MA"
+    priority: "C"
+    careers_url: "https://www.ameresco.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Silicon Ranch"
+    sector: "Renewables & Storage"
+    category: "Solar developer"
+    hq: "Nashville, TN"
+    priority: "C"
+    careers_url: "https://www.siliconranch.com/careers/"
+    ats_platform: "greenhouse"
+    greenhouse_board: "siliconranch"
+    enabled: true
+
+  - name: "Lightsource bp"
+    sector: "Renewables & Storage"
+    category: "Solar developer"
+    hq: "Denver, CO"
+    priority: "C"
+    careers_url: "https://lightsourcebp.com/us/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  # ── Utility ───────────────────────────────────────────────────────────
+  - name: "Duke Energy"
+    sector: "Utility"
+    category: "Investor-owned electric utility"
+    hq: "Charlotte, NC"
+    priority: "A"
+    careers_url: "https://www.duke-energy.com/our-company/careers"
+    ats_platform: "workday"
+    workday_tenant: "dukeenergy"
+    workday_instance: "wd1"
+    workday_career_site: "search"
+    enabled: true
+
+  - name: "Dominion Energy"
+    sector: "Utility"
+    category: "Investor-owned electric & gas utility"
+    hq: "Richmond, VA"
+    priority: "A"
+    careers_url: "https://careers.dominionenergy.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Southern Company"
+    sector: "Utility"
+    category: "Electric utility holding company"
+    hq: "Atlanta, GA"
+    priority: "A"
+    careers_url: "https://www.southerncompany.com/careers.html"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "American Electric Power"
+    sector: "Utility"
+    category: "Transmission-heavy electric utility"
+    hq: "Columbus, OH"
+    priority: "A"
+    careers_url: "https://www.aep.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "aep"
+    workday_instance: "wd1"
+    workday_career_site: "AEPCareerSite"
+    enabled: true
+
+  - name: "Xcel Energy"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "Minneapolis, MN"
+    priority: "A"
+    careers_url: "https://jobs.xcelenergy.com/"
+    ats_platform: "workday"
+    workday_tenant: "xcelenergy"
+    workday_instance: "wd1"
+    workday_career_site: "External"
+    enabled: true
+
+  - name: "Exelon"
+    sector: "Utility"
+    category: "Transmission & distribution utility"
+    hq: "Chicago, IL"
+    priority: "A"
+    careers_url: "https://www.exeloncorp.com/careers"
+    ats_platform: "jibe"
+    jibe_host: "careers.exeloncorp.com"
+    enabled: true
+
+  - name: "Constellation Energy"
+    sector: "Utility"
+    category: "Nuclear & clean generation"
+    hq: "Baltimore, MD"
+    priority: "A"
+    careers_url: "https://www.constellationenergy.com/careers.html"
+    ats_platform: "jibe"
+    jibe_host: "jobs.constellationenergy.com"
+    enabled: true
+
+  - name: "NextEra Energy"
+    sector: "Utility"
+    category: "Utility (FPL) & renewables developer"
+    hq: "Juno Beach, FL"
+    priority: "S"
+    careers_url: "https://www.nexteraenergy.com/careers.html"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Entergy"
+    sector: "Utility"
+    category: "Electric utility"
+    hq: "New Orleans, LA"
+    priority: "B"
+    careers_url: "https://www.entergy.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "FirstEnergy"
+    sector: "Utility"
+    category: "Electric utility"
+    hq: "Akron, OH"
+    priority: "B"
+    careers_url: "https://www.firstenergycorp.com/careers.html"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "PPL Corporation"
+    sector: "Utility"
+    category: "Electric utility"
+    hq: "Allentown, PA"
+    priority: "B"
+    careers_url: "https://www.pplweb.com/careers/"
+    ats_platform: "jibe"
+    jibe_host: "careers.pplweb.com"
+    enabled: true
+
+  - name: "Eversource Energy"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "Boston, MA"
+    priority: "B"
+    careers_url: "https://www.eversource.com/content/residential/about/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "National Grid"
+    sector: "Utility"
+    category: "Electric & gas utility (US)"
+    hq: "Waltham, MA"
+    priority: "B"
+    careers_url: "https://www.nationalgridus.com/Careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Con Edison"
+    sector: "Utility"
+    category: "Electric utility (NYC)"
+    hq: "New York, NY"
+    priority: "B"
+    careers_url: "https://www.coned.com/en/about-us/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "CenterPoint Energy"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "Houston, TX"
+    priority: "B"
+    careers_url: "https://www.centerpointenergy.com/en-us/corporate/about-us/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Ameren"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "St. Louis, MO"
+    priority: "B"
+    careers_url: "https://www.ameren.com/company/careers"
+    ats_platform: "workday"
+    workday_tenant: "ameren"
+    workday_instance: "wd1"
+    workday_career_site: "External"
+    enabled: true
+
+  - name: "Evergy"
+    sector: "Utility"
+    category: "Electric utility"
+    hq: "Kansas City, MO"
+    priority: "B"
+    careers_url: "https://www.evergy.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Alliant Energy"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "Madison, WI"
+    priority: "B"
+    careers_url: "https://www.alliantenergy.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "alliantenergy"
+    workday_instance: "wd1"
+    workday_career_site: "alliant"
+    enabled: true
+
+  - name: "WEC Energy Group"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "Milwaukee, WI"
+    priority: "B"
+    careers_url: "https://www.wecenergygroup.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "DTE Energy"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "Detroit, MI"
+    priority: "B"
+    careers_url: "https://www.dteenergy.com/us/en/business/about-us/careers.html"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Consumers Energy"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "Jackson, MI"
+    priority: "B"
+    careers_url: "https://www.consumersenergy.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Southern California Edison"
+    sector: "Utility"
+    category: "Electric utility"
+    hq: "Rosemead, CA"
+    priority: "A"
+    careers_url: "https://www.edisoncareers.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Pacific Gas and Electric"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "Oakland, CA"
+    priority: "A"
+    careers_url: "https://jobs.pge.com/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "San Diego Gas & Electric"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "San Diego, CA"
+    priority: "B"
+    careers_url: "https://www.sdge.com/more-information/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Oncor"
+    sector: "Utility"
+    category: "Transmission & distribution utility"
+    hq: "Dallas, TX"
+    priority: "B"
+    careers_url: "https://www.oncor.com/content/oncorwww/us/en/home/about-us/careers.html"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "PSEG"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "Newark, NJ"
+    priority: "B"
+    careers_url: "https://www.pseg.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Avangrid"
+    sector: "Utility"
+    category: "Utility & renewables"
+    hq: "Orange, CT"
+    priority: "B"
+    careers_url: "https://www.avangrid.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "NiSource"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "Merrillville, IN"
+    priority: "C"
+    careers_url: "https://www.nisource.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Arizona Public Service"
+    sector: "Utility"
+    category: "Electric utility"
+    hq: "Phoenix, AZ"
+    priority: "B"
+    careers_url: "https://www.aps.com/en/About/Careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Portland General Electric"
+    sector: "Utility"
+    category: "Electric utility"
+    hq: "Portland, OR"
+    priority: "C"
+    careers_url: "https://portlandgeneral.com/careers"
+    ats_platform: "workday"
+    workday_tenant: "portlandgeneral"
+    workday_instance: "wd5"
+    workday_career_site: "pgn"
+    enabled: true
+
+  - name: "Puget Sound Energy"
+    sector: "Utility"
+    category: "Electric & gas utility"
+    hq: "Bellevue, WA"
+    priority: "C"
+    careers_url: "https://www.pse.com/en/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Idaho Power"
+    sector: "Utility"
+    category: "Electric utility"
+    hq: "Boise, ID"
+    priority: "C"
+    careers_url: "https://www.idahopower.com/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Berkshire Hathaway Energy"
+    sector: "Utility"
+    category: "Utility holding (PacifiCorp, NV Energy, MidAmerican)"
+    hq: "Des Moines, IA"
+    priority: "B"
+    careers_url: "https://www.brkenergy.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "OG&E"
+    sector: "Utility"
+    category: "Electric utility"
+    hq: "Oklahoma City, OK"
+    priority: "C"
+    careers_url: "https://www.oge.com/wps/portal/ord/who-we-are/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Duquesne Light"
+    sector: "Utility"
+    category: "Electric utility"
+    hq: "Pittsburgh, PA"
+    priority: "C"
+    careers_url: "https://www.duquesnelight.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Tennessee Valley Authority"
+    sector: "Utility"
+    category: "Federal power utility"
+    hq: "Knoxville, TN"
+    priority: "B"
+    careers_url: "https://www.tva.com/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Salt River Project"
+    sector: "Utility"
+    category: "Public power utility"
+    hq: "Phoenix, AZ"
+    priority: "C"
+    careers_url: "https://www.srpnet.com/about/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Vistra"
+    sector: "Utility"
+    category: "Power generation & retail"
+    hq: "Irving, TX"
+    priority: "B"
+    careers_url: "https://www.vistracorp.com/careers/"
+    ats_platform: "workday"
+    workday_tenant: "vst"
+    workday_instance: "wd5"
+    workday_career_site: "vistra_careers"
+    enabled: true
+
+  - name: "NRG Energy"
+    sector: "Utility"
+    category: "Power generation & retail"
+    hq: "Houston, TX"
+    priority: "C"
+    careers_url: "https://www.nrg.com/about/careers.html"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "ERCOT"
+    sector: "Utility"
+    category: "Grid operator (ISO)"
+    hq: "Austin, TX"
+    priority: "A"
+    careers_url: "https://www.ercot.com/about/careers"
+    ats_platform: "workday"
+    workday_tenant: "ercot"
+    workday_instance: "wd1"
+    workday_career_site: "ercot_careers"
+    enabled: true
+
+  - name: "PJM Interconnection"
+    sector: "Utility"
+    category: "Grid operator (RTO)"
+    hq: "Audubon, PA"
+    priority: "A"
+    careers_url: "https://www.pjm.com/about-pjm/careers"
+    ats_platform: "workday"
+    workday_tenant: "pjm"
+    workday_instance: "wd5"
+    workday_career_site: "pjmcareers"
+    enabled: true
+
+  - name: "MISO"
+    sector: "Utility"
+    category: "Grid operator (RTO)"
+    hq: "Carmel, IN"
+    priority: "A"
+    careers_url: "https://www.misoenergy.org/about/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "California ISO"
+    sector: "Utility"
+    category: "Grid operator (ISO)"
+    hq: "Folsom, CA"
+    priority: "A"
+    careers_url: "https://www.caiso.com/about/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "NYISO"
+    sector: "Utility"
+    category: "Grid operator (ISO)"
+    hq: "Rensselaer, NY"
+    priority: "B"
+    careers_url: "https://www.nyiso.com/careers"
+    ats_platform: "greenhouse"
+    greenhouse_board: "nyiso"
+    enabled: true
+
+  - name: "ISO New England"
+    sector: "Utility"
+    category: "Grid operator (ISO)"
+    hq: "Holyoke, MA"
+    priority: "B"
+    careers_url: "https://www.iso-ne.com/about/careers"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "Southwest Power Pool"
+    sector: "Utility"
+    category: "Grid operator (RTO)"
+    hq: "Little Rock, AR"
+    priority: "B"
+    careers_url: "https://www.spp.org/about-us/careers/"
+    ats_platform: "generic"
+    enabled: false
+
+  - name: "American Transmission Company"
+    sector: "Utility"
+    category: "Transmission-only utility"
+    hq: "Pewaukee, WI"
+    priority: "C"
+    careers_url: "https://www.atcllc.com/careers/"
+    ats_platform: "workday"
+    workday_tenant: "atcllc"
+    workday_instance: "wd5"
+    workday_career_site: "atcllc"
+    enabled: true
+
+  - name: "ITC Holdings"
+    sector: "Utility"
+    category: "Transmission-only utility"
+    hq: "Novi, MI"
+    priority: "C"
+    careers_url: "https://www.itc-holdings.com/careers"
+    ats_platform: "generic"
+    enabled: false

@@ -1,0 +1,18 @@
+timezone: "America/New_York"
+
+scrape_times:
+  - "06:00"
+  - "11:30"
+  - "15:30"
+  - "20:30"
+
+retry:
+  max_attempts: 3
+  delay_seconds: 30
+
+rate_limit:
+  delay_between_requests_seconds: 2
+  delay_between_companies_seconds: 5
+  max_concurrent_requests: 3
+
+removed_job_threshold: 2  # missed scrapes before marking removed

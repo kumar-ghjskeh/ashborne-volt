@@ -1,0 +1,205 @@
+# Volt candidate employers: name	sector	category	hq	priority	careers_url
+# Source list for discovery (scripts/find_ats_browser.py --candidates=…) and for
+# directory-only entries in companies.yaml. Tab-separated; '#' lines ignored.
+Duke Energy	Utility	Investor-owned electric utility	Charlotte, NC	A	https://www.duke-energy.com/our-company/careers
+Dominion Energy	Utility	Investor-owned electric & gas utility	Richmond, VA	A	https://careers.dominionenergy.com/
+Southern Company	Utility	Electric utility holding company	Atlanta, GA	A	https://www.southerncompany.com/careers.html
+American Electric Power	Utility	Transmission-heavy electric utility	Columbus, OH	A	https://www.aep.com/careers
+Xcel Energy	Utility	Electric & gas utility	Minneapolis, MN	A	https://jobs.xcelenergy.com/
+Exelon	Utility	Transmission & distribution utility	Chicago, IL	A	https://www.exeloncorp.com/careers
+Constellation Energy	Utility	Nuclear & clean generation	Baltimore, MD	A	https://www.constellationenergy.com/careers.html
+NextEra Energy	Utility	Utility (FPL) & renewables developer	Juno Beach, FL	S	https://www.nexteraenergy.com/careers.html
+Entergy	Utility	Electric utility	New Orleans, LA	B	https://www.entergy.com/careers/
+FirstEnergy	Utility	Electric utility	Akron, OH	B	https://www.firstenergycorp.com/careers.html
+PPL Corporation	Utility	Electric utility	Allentown, PA	B	https://www.pplweb.com/careers/
+Eversource Energy	Utility	Electric & gas utility	Boston, MA	B	https://www.eversource.com/content/residential/about/careers
+National Grid	Utility	Electric & gas utility (US)	Waltham, MA	B	https://www.nationalgridus.com/Careers/
+Con Edison	Utility	Electric utility (NYC)	New York, NY	B	https://www.coned.com/en/about-us/careers
+CenterPoint Energy	Utility	Electric & gas utility	Houston, TX	B	https://www.centerpointenergy.com/en-us/corporate/about-us/careers
+Ameren	Utility	Electric & gas utility	St. Louis, MO	B	https://www.ameren.com/company/careers
+Evergy	Utility	Electric utility	Kansas City, MO	B	https://www.evergy.com/careers
+Alliant Energy	Utility	Electric & gas utility	Madison, WI	B	https://www.alliantenergy.com/careers
+WEC Energy Group	Utility	Electric & gas utility	Milwaukee, WI	B	https://www.wecenergygroup.com/careers/
+DTE Energy	Utility	Electric & gas utility	Detroit, MI	B	https://www.dteenergy.com/us/en/business/about-us/careers.html
+Consumers Energy	Utility	Electric & gas utility	Jackson, MI	B	https://www.consumersenergy.com/careers
+Southern California Edison	Utility	Electric utility	Rosemead, CA	A	https://www.edisoncareers.com/
+Pacific Gas and Electric	Utility	Electric & gas utility	Oakland, CA	A	https://jobs.pge.com/
+San Diego Gas & Electric	Utility	Electric & gas utility	San Diego, CA	B	https://www.sdge.com/more-information/careers
+Oncor	Utility	Transmission & distribution utility	Dallas, TX	B	https://www.oncor.com/content/oncorwww/us/en/home/about-us/careers.html
+PSEG	Utility	Electric & gas utility	Newark, NJ	B	https://www.pseg.com/careers
+Avangrid	Utility	Utility & renewables	Orange, CT	B	https://www.avangrid.com/careers
+NiSource	Utility	Electric & gas utility	Merrillville, IN	C	https://www.nisource.com/careers
+Arizona Public Service	Utility	Electric utility	Phoenix, AZ	B	https://www.aps.com/en/About/Careers
+Portland General Electric	Utility	Electric utility	Portland, OR	C	https://portlandgeneral.com/careers
+Puget Sound Energy	Utility	Electric & gas utility	Bellevue, WA	C	https://www.pse.com/en/careers
+Idaho Power	Utility	Electric utility	Boise, ID	C	https://www.idahopower.com/careers/
+Berkshire Hathaway Energy	Utility	Utility holding (PacifiCorp, NV Energy, MidAmerican)	Des Moines, IA	B	https://www.brkenergy.com/careers
+OG&E	Utility	Electric utility	Oklahoma City, OK	C	https://www.oge.com/wps/portal/ord/who-we-are/careers
+Duquesne Light	Utility	Electric utility	Pittsburgh, PA	C	https://www.duquesnelight.com/careers
+Tennessee Valley Authority	Utility	Federal power utility	Knoxville, TN	B	https://www.tva.com/careers
+Salt River Project	Utility	Public power utility	Phoenix, AZ	C	https://www.srpnet.com/about/careers
+Vistra	Utility	Power generation & retail	Irving, TX	B	https://www.vistracorp.com/careers/
+NRG Energy	Utility	Power generation & retail	Houston, TX	C	https://www.nrg.com/about/careers.html
+ERCOT	Utility	Grid operator (ISO)	Austin, TX	A	https://www.ercot.com/about/careers
+PJM Interconnection	Utility	Grid operator (RTO)	Audubon, PA	A	https://www.pjm.com/about-pjm/careers
+MISO	Utility	Grid operator (RTO)	Carmel, IN	A	https://www.misoenergy.org/about/careers/
+California ISO	Utility	Grid operator (ISO)	Folsom, CA	A	https://www.caiso.com/about/careers
+NYISO	Utility	Grid operator (ISO)	Rensselaer, NY	B	https://www.nyiso.com/careers
+ISO New England	Utility	Grid operator (ISO)	Holyoke, MA	B	https://www.iso-ne.com/about/careers
+Southwest Power Pool	Utility	Grid operator (RTO)	Little Rock, AR	B	https://www.spp.org/about-us/careers/
+American Transmission Company	Utility	Transmission-only utility	Pewaukee, WI	C	https://www.atcllc.com/careers/
+ITC Holdings	Utility	Transmission-only utility	Novi, MI	C	https://www.itc-holdings.com/careers
+GE Vernova	Grid & Power OEM	Grid, gas, wind & electrification equipment	Cambridge, MA	S	https://careers.gevernova.com/
+Hitachi Energy	Grid & Power OEM	HV equipment, HVDC, grid automation	Raleigh, NC	S	https://www.hitachienergy.com/careers
+Siemens Energy	Grid & Power OEM	Grid technologies & generation	Orlando, FL	S	https://jobs.siemens-energy.com/
+Siemens	Industrial & Automation	Smart infrastructure & digital industries	Washington, DC	S	https://jobs.siemens.com/
+ABB	Industrial & Automation	Electrification, motion & automation	Cary, NC	S	https://careers.abb/global/en
+Schneider Electric	Grid & Power OEM	Energy management & automation	Andover, MA	S	https://www.se.com/us/en/about-us/careers/
+Eaton	Grid & Power OEM	Power management equipment	Dublin, Ireland / Cleveland, OH	S	https://www.eaton.com/us/en-us/company/careers.html
+Hubbell	Grid & Power OEM	Utility & electrical products	Shelton, CT	A	https://www.hubbell.com/hubbell/en/careers
+Schweitzer Engineering Laboratories	Grid & Power OEM	Protective relays & grid automation	Pullman, WA	S	https://selinc.com/careers/
+S&C Electric	Grid & Power OEM	Switching & protection for utilities	Chicago, IL	A	https://www.sandc.com/en/careers/
+Mitsubishi Electric Power Products	Grid & Power OEM	HV substation equipment	Warrendale, PA	B	https://www.meppi.com/careers
+Toshiba International	Grid & Power OEM	Motors, drives, UPS, T&D	Houston, TX	B	https://www.toshiba.com/tic/careers
+Itron	Grid & Power OEM	Metering & grid edge	Liberty Lake, WA	B	https://na.itron.com/company/careers
+Landis+Gyr	Grid & Power OEM	Smart metering	Alpharetta, GA	B	https://www.landisgyr.com/careers/
+Vertiv	Data Centers & Facilities	Critical power & thermal for data centers	Westerville, OH	A	https://www.vertiv.com/en-us/about/careers/
+Generac	Grid & Power OEM	Generators & energy storage	Waukesha, WI	B	https://www.generac.com/about-us/careers/
+Cummins	Grid & Power OEM	Engines, power generation, electrification	Columbus, IN	A	https://www.cummins.com/careers
+Caterpillar	Grid & Power OEM	Power generation & electrification	Irving, TX	B	https://careers.caterpillar.com/
+nVent	Grid & Power OEM	Electrical enclosures & protection	London / Minneapolis, MN	B	https://www.nvent.com/en-us/careers
+Southwire	Grid & Power OEM	Wire & cable	Carrollton, GA	B	https://www.southwire.com/careers
+Powell Industries	Grid & Power OEM	Switchgear & power control	Houston, TX	B	https://www.powellind.com/careers
+WEG	Grid & Power OEM	Motors, drives, transformers	Duluth, GA	C	https://www.weg.net/institutional/US/en/careers
+Prolec GE	Grid & Power OEM	Power transformers	Goldsboro, NC	C	https://www.prolecge.com/careers
+Rockwell Automation	Industrial & Automation	Industrial automation & control	Milwaukee, WI	S	https://www.rockwellautomation.com/en-us/company/careers.html
+Emerson	Industrial & Automation	Process automation & controls	St. Louis, MO	A	https://www.emerson.com/en-us/careers
+Honeywell	Industrial & Automation	Automation, aerospace, building technologies	Charlotte, NC	A	https://careers.honeywell.com/
+Regal Rexnord	Industrial & Automation	Motors & power transmission	Milwaukee, WI	B	https://www.regalrexnord.com/careers
+Parker Hannifin	Industrial & Automation	Motion control & electrification	Cleveland, OH	B	https://www.parker.com/us/en/careers.html
+Danfoss	Industrial & Automation	Drives & power conversion	Baltimore, MD	B	https://www.danfoss.com/en/about-danfoss/careers/
+Mitsubishi Electric Automation	Industrial & Automation	Factory automation	Vernon Hills, IL	C	https://us.mitsubishielectric.com/fa/en/about-us/careers
+Yokogawa	Industrial & Automation	Process control & instrumentation	Sugar Land, TX	C	https://www.yokogawa.com/us/about/careers/
+Endress+Hauser	Industrial & Automation	Process instrumentation	Greenwood, IN	C	https://www.us.endress.com/en/careers
+Burns & McDonnell	EPC & Consulting	Engineering, architecture, construction	Kansas City, MO	S	https://www.burnsmcd.com/careers
+Black & Veatch	EPC & Consulting	Power, water & telecom EPC	Overland Park, KS	S	https://www.bv.com/careers
+Sargent & Lundy	EPC & Consulting	Power engineering consultancy	Chicago, IL	A	https://www.sargentlundy.com/careers/
+WSP	EPC & Consulting	Engineering consultancy (incl. POWER Engineers)	New York, NY	A	https://www.wsp.com/en-us/careers
+HDR	EPC & Consulting	Engineering & architecture	Omaha, NE	A	https://www.hdrinc.com/careers
+Jacobs	EPC & Consulting	Engineering & infrastructure	Dallas, TX	A	https://careers.jacobs.com/
+AECOM	EPC & Consulting	Infrastructure consulting	Dallas, TX	A	https://aecom.jobs/
+Stantec	EPC & Consulting	Engineering & design	Edmonton, AB / US offices	A	https://www.stantec.com/en/careers
+Kimley-Horn	EPC & Consulting	Engineering consultancy	Raleigh, NC	B	https://www.kimley-horn.com/careers/
+Mott MacDonald	EPC & Consulting	Engineering consultancy	Iselin, NJ	B	https://www.mottmac.com/en-US/careers
+Kiewit	EPC & Consulting	Construction & engineering	Omaha, NE	A	https://www.kiewit.com/careers/
+Mortenson	EPC & Consulting	Construction (renewables, data centers)	Minneapolis, MN	B	https://www.mortenson.com/careers
+Bechtel	EPC & Consulting	EPC (energy, infrastructure)	Reston, VA	A	https://jobs.bechtel.com/
+Fluor	EPC & Consulting	EPC	Irving, TX	B	https://www.fluor.com/careers
+Worley	EPC & Consulting	Energy & resources engineering	Houston, TX	B	https://www.worley.com/en/careers
+Ulteig	EPC & Consulting	Power & renewables engineering	Fargo, ND	B	https://www.ulteig.com/careers
+TRC Companies	EPC & Consulting	Power delivery engineering	Windsor, CT	B	https://www.trccompanies.com/careers/
+Quanta Services	EPC & Consulting	Utility & renewable infrastructure	Houston, TX	A	https://www.quantaservices.com/careers
+MasTec	EPC & Consulting	Infrastructure construction	Coral Gables, FL	C	https://www.mastec.com/careers/
+Primoris	EPC & Consulting	Utility & energy construction	Dallas, TX	C	https://www.prim.com/careers
+Leidos	EPC & Consulting	Engineering incl. power delivery; defense	Reston, VA	B	https://careers.leidos.com/
+Dewberry	EPC & Consulting	Engineering consultancy	Fairfax, VA	C	https://www.dewberry.com/careers
+Salas O'Brien	EPC & Consulting	MEP & power engineering	Irvine, CA	C	https://salasobrien.com/careers/
+Syska Hennessy	EPC & Consulting	MEP engineering	New York, NY	C	https://www.syska.com/careers/
+Henderson Engineers	EPC & Consulting	MEP engineering	Lenexa, KS	C	https://www.hendersonengineers.com/careers/
+IMEG	EPC & Consulting	MEP engineering	Rock Island, IL	C	https://www.imegcorp.com/careers/
+Affiliated Engineers	EPC & Consulting	MEP engineering	Madison, WI	C	https://www.aeieng.com/careers
+Invenergy	Renewables & Storage	Wind, solar & storage developer	Chicago, IL	A	https://invenergy.com/careers
+Ørsted	Renewables & Storage	Offshore wind (US)	Boston, MA	A	https://orsted.us/careers
+RWE Clean Energy	Renewables & Storage	Renewables developer & operator	Austin, TX	A	https://us.rwe.com/careers
+EDF power solutions	Renewables & Storage	Renewables developer	San Diego, CA	B	https://www.edf-re.com/careers/
+Enel North America	Renewables & Storage	Renewables & grid	Andover, MA	B	https://www.enelnorthamerica.com/careers
+Pattern Energy	Renewables & Storage	Wind & transmission developer	San Francisco, CA	B	https://patternenergy.com/careers/
+Apex Clean Energy	Renewables & Storage	Wind & solar developer	Charlottesville, VA	B	https://www.apexcleanenergy.com/careers/
+Intersect Power	Renewables & Storage	Clean power developer	San Francisco, CA	C	https://www.intersectpower.com/careers
+Fluence	Renewables & Storage	Grid-scale energy storage	Arlington, VA	A	https://fluenceenergy.com/careers/
+Enphase Energy	Renewables & Storage	Microinverters & storage	Fremont, CA	A	https://enphase.com/careers
+SolarEdge	Renewables & Storage	Inverters & storage	Milpitas, CA	B	https://www.solaredge.com/us/careers
+First Solar	Renewables & Storage	PV module manufacturer	Tempe, AZ	B	https://www.firstsolar.com/en/About-Us/Careers
+Nextracker	Renewables & Storage	Solar trackers	Fremont, CA	B	https://www.nextracker.com/careers/
+Array Technologies	Renewables & Storage	Solar trackers	Albuquerque, NM	C	https://arraytechinc.com/careers/
+Form Energy	Renewables & Storage	Long-duration storage	Somerville, MA	B	https://formenergy.com/careers/
+Wärtsilä Energy Storage	Renewables & Storage	Energy storage & engines	Houston, TX	C	https://www.wartsila.com/careers
+Clearway Energy	Renewables & Storage	Renewables owner-operator	San Francisco, CA	C	https://www.clearwayenergy.com/careers/
+Ameresco	Renewables & Storage	Energy efficiency & renewables	Framingham, MA	C	https://www.ameresco.com/careers/
+Silicon Ranch	Renewables & Storage	Solar developer	Nashville, TN	C	https://www.siliconranch.com/careers/
+Lightsource bp	Renewables & Storage	Solar developer	Denver, CO	C	https://lightsourcebp.com/us/careers/
+Equinix	Data Centers & Facilities	Data center operator	Redwood City, CA	A	https://careers.equinix.com/
+Digital Realty	Data Centers & Facilities	Data center operator	Austin, TX	A	https://www.digitalrealty.com/about/careers
+Vantage Data Centers	Data Centers & Facilities	Hyperscale data centers	Denver, CO	B	https://vantage-dc.com/careers/
+QTS Data Centers	Data Centers & Facilities	Data center operator	Overland Park, KS	B	https://qtsdatacenters.com/careers
+Aligned Data Centers	Data Centers & Facilities	Data center operator	Dallas, TX	B	https://aligneddc.com/careers/
+CyrusOne	Data Centers & Facilities	Data center operator	Dallas, TX	B	https://www.cyrusone.com/careers
+Stack Infrastructure	Data Centers & Facilities	Data center operator	Denver, CO	C	https://www.stackinfra.com/careers/
+Compass Datacenters	Data Centers & Facilities	Data center developer	Dallas, TX	C	https://www.compassdatacenters.com/careers/
+EdgeConneX	Data Centers & Facilities	Data center developer	Herndon, VA	C	https://www.edgeconnex.com/careers/
+Switch	Data Centers & Facilities	Data center operator	Las Vegas, NV	C	https://www.switch.com/careers/
+CoreWeave	Data Centers & Facilities	AI cloud & data centers	Livingston, NJ	B	https://www.coreweave.com/careers
+Crusoe	Data Centers & Facilities	AI data centers & energy	Denver, CO	B	https://www.crusoe.ai/careers
+Rosendin	Data Centers & Facilities	Electrical contractor (engineering roles)	San Jose, CA	C	https://rosendin.com/careers/
+Amazon	Data Centers & Facilities	AWS data center & infrastructure engineering	Seattle, WA	S	https://www.amazon.jobs/
+Boeing	Aerospace & Defense	Aircraft & defense	Arlington, VA	S	https://jobs.boeing.com/
+Lockheed Martin	Aerospace & Defense	Defense & space	Bethesda, MD	S	https://www.lockheedmartinjobs.com/
+Northrop Grumman	Aerospace & Defense	Defense & space	Falls Church, VA	S	https://www.northropgrumman.com/careers
+RTX	Aerospace & Defense	Raytheon, Collins Aerospace, Pratt & Whitney	Arlington, VA	S	https://careers.rtx.com/
+L3Harris	Aerospace & Defense	Defense electronics & space	Melbourne, FL	A	https://careers.l3harris.com/
+General Dynamics	Aerospace & Defense	Defense, marine, IT	Reston, VA	A	https://www.gd.com/careers
+BAE Systems	Aerospace & Defense	Defense electronics	Falls Church, VA	A	https://jobs.baesystems.com/
+GE Aerospace	Aerospace & Defense	Aircraft engines & avionics	Cincinnati, OH	A	https://careers.geaerospace.com/
+SpaceX	Aerospace & Defense	Launch, spacecraft, Starlink	Hawthorne, CA	S	https://www.spacex.com/careers/
+Blue Origin	Aerospace & Defense	Launch & spacecraft	Kent, WA	A	https://www.blueorigin.com/careers
+Rocket Lab	Aerospace & Defense	Launch & spacecraft	Long Beach, CA	B	https://www.rocketlabusa.com/careers/
+Joby Aviation	Aerospace & Defense	Electric aircraft (eVTOL)	Santa Cruz, CA	B	https://www.jobyaviation.com/careers/
+Archer Aviation	Aerospace & Defense	Electric aircraft (eVTOL)	San Jose, CA	B	https://www.archer.com/careers
+Anduril	Aerospace & Defense	Defense technology	Costa Mesa, CA	A	https://www.anduril.com/careers
+Textron	Aerospace & Defense	Aviation & defense	Providence, RI	B	https://www.textron.com/careers
+Sierra Nevada Corporation	Aerospace & Defense	Aerospace & defense	Sparks, NV	C	https://www.sncorp.com/careers/
+Moog	Aerospace & Defense	Motion control (aero & industrial)	East Aurora, NY	C	https://www.moog.com/careers.html
+Curtiss-Wright	Aerospace & Defense	Defense & power electronics	Davidson, NC	C	https://www.curtisswright.com/careers
+Tesla	Automotive & EV	EVs, energy storage, solar	Austin, TX	S	https://www.tesla.com/careers
+Rivian	Automotive & EV	Electric vehicles	Irvine, CA	A	https://rivian.com/careers
+Lucid Motors	Automotive & EV	Electric vehicles	Newark, CA	B	https://lucidmotors.com/careers
+General Motors	Automotive & EV	Vehicles & EV platforms	Detroit, MI	A	https://search-careers.gm.com/
+Ford Motor Company	Automotive & EV	Vehicles & EVs	Dearborn, MI	A	https://corporate.ford.com/careers.html
+Stellantis	Automotive & EV	Vehicles (US)	Auburn Hills, MI	B	https://www.stellantis.com/en/careers
+Toyota North America	Automotive & EV	Vehicles & battery manufacturing	Plano, TX	B	https://careers.toyota.com/
+Aptiv	Automotive & EV	Vehicle electrical architecture	Troy, MI	B	https://www.aptiv.com/en/careers
+BorgWarner	Automotive & EV	EV propulsion & power electronics	Auburn Hills, MI	B	https://www.borgwarner.com/careers
+ChargePoint	Automotive & EV	EV charging networks	Campbell, CA	B	https://www.chargepoint.com/about/careers
+Zoox	Automotive & EV	Autonomous EVs	Foster City, CA	B	https://zoox.com/careers
+Waymo	Automotive & EV	Autonomous driving	Mountain View, CA	A	https://careers.withwaymo.com/
+Wabtec	Rail & Transit	Locomotives & rail electronics	Pittsburgh, PA	A	https://www.wabteccorp.com/careers
+Siemens Mobility	Rail & Transit	Rail signalling & rolling stock	New York, NY	A	https://jobs.siemens.com/
+Alstom	Rail & Transit	Rolling stock & signalling	New York, NY	B	https://www.alstom.com/careers
+Hitachi Rail	Rail & Transit	Rail systems & signalling	Pittsburgh, PA	B	https://www.hitachirail.com/careers/
+HNTB	Rail & Transit	Transportation infrastructure engineering	Kansas City, MO	B	https://www.hntb.com/careers/
+STV	Rail & Transit	Transportation engineering	New York, NY	C	https://www.stvinc.com/careers
+Amtrak	Rail & Transit	Passenger rail	Washington, DC	B	https://careers.amtrak.com/
+Qualcomm	RF & Communications	Wireless & RF	San Diego, CA	S	https://careers.qualcomm.com/
+Qorvo	RF & Communications	RF front-end	Greensboro, NC	A	https://careers.qorvo.com/
+Skyworks Solutions	RF & Communications	RF & analog	Irvine, CA	A	https://www.skyworksinc.com/careers
+Keysight Technologies	RF & Communications	RF & electronic test	Santa Rosa, CA	A	https://jobs.keysight.com/
+Rohde & Schwarz USA	RF & Communications	RF test & communications	Columbia, MD	C	https://www.rohde-schwarz.com/us/career/career_229080.html
+Ericsson	RF & Communications	Wireless networks (US)	Plano, TX	B	https://www.ericsson.com/en/careers
+Nokia	RF & Communications	Networks (US)	Dallas, TX	B	https://www.nokia.com/about-us/careers/
+Verizon	RF & Communications	Wireless carrier (RF engineering)	New York, NY	A	https://www.verizon.com/about/careers
+AT&T	RF & Communications	Wireless carrier (RF engineering)	Dallas, TX	A	https://www.att.jobs/
+T-Mobile	RF & Communications	Wireless carrier (RF engineering)	Bellevue, WA	A	https://careers.t-mobile.com/
+Crown Castle	RF & Communications	Towers & fiber	Houston, TX	C	https://www.crowncastle.com/careers
+Viasat	RF & Communications	Satellite communications	Carlsbad, CA	B	https://careers.viasat.com/
+Motorola Solutions	RF & Communications	Land-mobile radio & public safety	Chicago, IL	B	https://www.motorolasolutions.com/en_us/about/careers.html
+Garmin	RF & Communications	GNSS & avionics	Olathe, KS	B	https://careers.garmin.com/
+Ciena	RF & Communications	Optical networking	Hanover, MD	B	https://www.ciena.com/careers
+CommScope	RF & Communications	Antennas & network infrastructure	Hickory, NC	C	https://jobs.commscope.com/
+Mercury Systems	RF & Communications	Defense RF & processing	Andover, MA	C	https://www.mrcy.com/company/careers
+Texas Instruments	Electronics & Semiconductors	Analog & power ICs (applications, systems roles)	Dallas, TX	A	https://careers.ti.com/
+Analog Devices	Electronics & Semiconductors	Analog, power & RF (applications, systems roles)	Wilmington, MA	A	https://www.analog.com/en/about-adi/careers.html
+Infineon Technologies	Electronics & Semiconductors	Power semiconductors (US)	El Segundo, CA	B	https://www.infineon.com/cms/en/careers/
+Vicor	Electronics & Semiconductors	Power modules	Andover, MA	C	https://www.vicorpower.com/careers
+Advanced Energy	Electronics & Semiconductors	Power conversion	Denver, CO	C	https://www.advancedenergy.com/en-us/about/careers/
+TE Connectivity	Electronics & Semiconductors	Connectors & sensors	Berwyn, PA	B	https://careers.te.com/
+Littelfuse	Electronics & Semiconductors	Circuit protection & power semis	Chicago, IL	C	https://www.littelfuse.com/about-us/careers

@@ -1,0 +1,16 @@
+# Optional dependencies for the LOCAL real-browser scrape engine
+# (backend/app/run_browser_scrape.py). NOT installed on Render — the free web
+# tier has neither Chromium nor enough RAM to run one. Install on your own
+# machine to unlock the anti-bot Workday tenants (Cadence, KLA, Applied
+# Materials, Microchip, …):
+#
+#   pip install -r backend/requirements-browser.txt
+#   python -m playwright install chromium
+#
+# PINNED, not ">=". An unpinned playwright resolves to whatever shipped that
+# morning, so CI could break with zero commits on our side — which is exactly
+# what happened. This version MUST match the container tag in
+# .github/workflows/scrape-giants.yml (mcr.microsoft.com/playwright/python:
+# v1.62.0-noble): the Python package and the browser build it drives are
+# released as a matched pair. Bump both together, never one alone.
+playwright==1.62.0

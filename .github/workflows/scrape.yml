@@ -1,0 +1,172 @@
+name: Scrape jobs
+
+# Free, PC-independent scraping with no hosted database.
+#
+#   plan     decide the shards (companies grouped by the job-board host they hit)
+#   guard    run the test suite against the locked dependencies — a broken
+#            classifier or merge must never reach the published corpus
+#   scrape   one job per shard, in parallel; each writes a shard file artifact
+#   publish  the ONLY job that writes to the repo: merges every shard into
+#            frontend/public/data and pushes one commit; Vercel redeploys
+#
+# A shard that fails simply produces no artifact, and the publish step keeps that
+# shard's companies exactly as they were. One bad source is never an outage.
+#
+# Needs no secrets to scrape.
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"    # every 3 hours (UTC)
+  workflow_dispatch:
+    inputs:
+      shard_count:
+        description: "Number of parallel shards (blank = automatic)"
+        required: false
+        default: ""
+
+# One scrape at a time; a scheduled run never cancels one already publishing.
+concurrency:
+  group: scrape
+  cancel-in-progress: false
+
+# Read-only by default. Only the publish job is granted write.
+permissions:
+  contents: read
+
+env:
+  PYTHONUNBUFFERED: "1"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      shards: ${{ steps.plan.outputs.shards }}
+      count: ${{ steps.plan.outputs.count }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: backend/requirements.lock.txt
+      - run: pip install -r backend/requirements.lock.txt
+      - id: plan
+        env:
+          REQUESTED: ${{ github.event.inputs.shard_count }}
+        run: |
+          set -euo pipefail
+          SHARDS=$(python -m backend.app.sharding ${REQUESTED:-} | tail -1)
+          COUNT=$(python -c "import json,sys;print(sum(1 for s in json.loads(sys.argv[1]) if s!='browser'))" "$SHARDS")
+          echo "shards=$SHARDS" >> "$GITHUB_OUTPUT"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "Plan: $SHARDS ($COUNT numbered shards)"
+
+  guard:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: backend/requirements.lock.txt
+      - run: |
+          pip install -r backend/requirements.lock.txt pytest
+          cd backend && python -m pytest -q
+
+  scrape:
+    needs: [plan, guard]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: ${{ fromJson(needs.plan.outputs.shards) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: backend/requirements.lock.txt
+      - name: Install dependencies
+        run: |
+          pip install -r backend/requirements.lock.txt
+          pip install -r backend/requirements-cf.txt
+      - name: Install Chromium (browser shard only)
+        if: matrix.shard == 'browser'
+        run: |
+          pip install -r backend/requirements-browser.txt
+          python -m playwright install --with-deps chromium
+      - name: Scrape shard ${{ matrix.shard }}
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARD_COUNT: ${{ needs.plan.outputs.count }}
+          SHARD_OUT: shards/shard-${{ matrix.shard }}.json
+          DATA_DIR: frontend/public/data
+        run: python -m backend.app.run_static
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        if: success()
+        with:
+          name: shard-${{ matrix.shard }}
+          path: shards/shard-${{ matrix.shard }}.json
+          retention-days: 2
+          if-no-files-found: error
+
+  publish:
+    needs: [plan, scrape]
+    # Publish whatever succeeded, even if some shards failed.
+    if: always() && needs.plan.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: backend/requirements.lock.txt
+      - run: pip install -r backend/requirements.lock.txt
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+        with:
+          pattern: shard-*
+          path: shards
+          merge-multiple: true
+      - name: Merge shards and publish
+        run: |
+          set -euo pipefail
+          ls -la shards || { echo "::error::no shard succeeded"; exit 1; }
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3; do
+            git fetch --quiet origin "${GITHUB_REF_NAME}"
+            git reset --hard --quiet "origin/${GITHUB_REF_NAME}"
+            DATA_DIR=frontend/public/data python -m backend.app.merge_publish shards/*.json
+            git add frontend/public/data
+            if git diff --cached --quiet; then
+              echo "Corpus unchanged — nothing to publish."
+              exit 0
+            fi
+            COUNT=$(python -c "import json;d=json.load(open('frontend/public/data/jobs.json'));print(f\"{d['count']} jobs, {d.get('unique_count', 0)} unique\")")
+            git commit --quiet -m "data: refresh job snapshot (${COUNT})"
+            if git push --quiet; then
+              echo "Published ${COUNT}."
+              exit 0
+            fi
+            echo "Push race, retrying ($attempt)"
+            sleep 5
+          done
+          echo "::error::Could not publish after 3 attempts."
+          exit 1

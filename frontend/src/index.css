@@ -1,0 +1,338 @@
+@import "tailwindcss";
+
+/* ════════════════════════════════════════════════════════════════════════
+   Ashborne Volt — design system
+   Professional SaaS UI. Light + dark are BOTH first-class themes driven by
+   a single semantic-token set. Components must use tokens, never raw colors.
+   Primary = deep indigo. Gold is a sparing premium accent only.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── Canonical semantic tokens — LIGHT (default) ───────────────────────── */
+:root,
+:root[data-theme="light"] {
+  --background:      #F6F7F9;
+  --surface:         #FFFFFF;
+  --surface-muted:   #EEF1F5;
+  --surface-raised:  #FFFFFF;
+
+  --text-primary:    #0F172A;
+  --text-secondary:  #5A6573;
+  --text-tertiary:   #8A94A3;
+  --on-primary:      #FFFFFF;
+
+  --border:          #E4E7EC;
+  --border-strong:   #D3D8E0;
+
+  --primary:         #2563EB;
+  --primary-hover:   #1D4ED8;
+  --primary-light:   #EAF1FE;
+  --primary-mid:     #C3D7FB;
+  --primary-glow:    0 6px 18px rgba(37,99,235,0.28);
+
+  --success:         #15803D;
+  --success-light:   #E6F4EA;
+  --success-border:  #B7E0C4;
+  --warning:         #B45309;
+  --warning-light:   #FBF1DC;
+  --warning-border:  #F2D9A6;
+  --danger:          #DC2626;
+  --danger-light:    #FBE9E9;
+  --danger-border:   #F3C5C5;
+
+  --teal:            #0E7490;
+  --teal-light:      #E0F5F9;
+
+  --accent-gold:     #B7791F;
+  --accent-gold-bg:  #FBF3E0;
+  --accent-gold-border: #ECD9AE;
+
+  --shadow-sm:    0 1px 2px rgba(15,23,42,0.06);
+  --shadow-card:  0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+  --shadow-raised: 0 6px 20px rgba(15,23,42,0.10);
+  --shadow-panel: 0 8px 30px rgba(15,23,42,0.12);
+
+  --brand-tile: linear-gradient(135deg, #15171F 0%, #0B0B0F 100%);
+  /* Backing for THIRD-PARTY company logos (CompanyLogo), which are mostly dark
+     marks on transparency and so need a light tile. Distinct from --brand-tile,
+     which is the dark tile for our own logo in TopNav. */
+  --logo-tile: #FFFFFF;
+
+  color-scheme: light;
+}
+
+/* ── Canonical semantic tokens — DARK ──────────────────────────────────── */
+:root[data-theme="dark"] {
+  /* Deep Space Navy — blue-black base with layered, blue-tinted surfaces */
+  --background:      #0A0E1A;
+  --surface:         #121829;
+  --surface-muted:   #161D30;
+  --surface-raised:  #19223A;
+
+  --text-primary:    #E7ECF5;
+  --text-secondary:  #99A6BE;
+  --text-tertiary:   #65718B;
+  --on-primary:      #FFFFFF;
+
+  --border:          #1E2841;
+  --border-strong:   #2C3A56;
+
+  --primary:         #3B82F6;
+  --primary-hover:   #60A5FA;
+  --primary-light:   rgba(59,130,246,0.16);
+  --primary-mid:     rgba(59,130,246,0.42);
+  --primary-glow:    0 6px 22px rgba(59,130,246,0.40);
+
+  --success:         #34D399;
+  --success-light:   rgba(52,211,153,0.14);
+  --success-border:  rgba(52,211,153,0.32);
+  --warning:         #FBBF24;
+  --warning-light:   rgba(251,191,36,0.14);
+  --warning-border:  rgba(251,191,36,0.32);
+  --danger:          #F87171;
+  --danger-light:    rgba(248,113,113,0.14);
+  --danger-border:   rgba(248,113,113,0.32);
+
+  --teal:            #2DD4BF;
+  --teal-light:      rgba(45,212,191,0.14);
+
+  --accent-gold:     #E8B23A;
+  --accent-gold-bg:  rgba(232,178,58,0.14);
+  --accent-gold-border: rgba(232,178,58,0.34);
+
+  --shadow-sm:    0 1px 2px rgba(0,0,0,0.40);
+  --shadow-card:  0 1px 3px rgba(0,0,0,0.40), 0 1px 2px rgba(0,0,0,0.30);
+  --shadow-raised: 0 8px 24px rgba(0,0,0,0.55);
+  --shadow-panel: 0 10px 34px rgba(0,0,0,0.60);
+
+  --brand-tile: linear-gradient(135deg, #1B2030 0%, #0B0B0F 100%);
+  /* Dimmed rather than pure white: a full-white tile punches a hole in the dark
+     page, but the mark still needs a light ground to read against. */
+  --logo-tile: #E7E9EE;
+
+  color-scheme: dark;
+}
+
+/* ── Backward-compatible aliases (existing components keep working) ─────── */
+:root {
+  --bg:              var(--background);
+  --text:            var(--text-primary);
+  --text-muted:      var(--text-secondary);
+  --text-faint:      var(--text-tertiary);
+  --surface-sunken:  var(--surface-muted);
+  --surface-hover:   var(--surface-muted);
+  --border-light:    var(--border);
+  --error:           var(--danger);
+  --error-light:     var(--danger-light);
+  --error-border:    var(--danger-border);
+  --gold:            var(--accent-gold);
+  --gold-light:      var(--accent-gold-bg);
+  --navy:            var(--text-primary);
+
+  --nav-height: 104px;
+  --sidebar-width: 270px;
+  --panel-width: 384px;
+  --radius: 8px;
+  --radius-lg: 10px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#root { width: 100%; min-height: 100vh; }
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--primary-hover); }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-tertiary); }
+
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+input, select, textarea { font-family: inherit; font-size: 13px; color: var(--text-primary); }
+input::placeholder, textarea::placeholder { color: var(--text-tertiary); }
+select { background: var(--surface); }
+select option { background: var(--surface); color: var(--text-primary); }
+
+/* ── Cards ─────────────────────────────────────────────────────────────── */
+.card-flat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.card-raised {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow-card);
+}
+
+.job-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  transition: box-shadow 0.16s ease, border-color 0.16s ease, transform 0.12s ease;
+}
+.job-card:hover {
+  box-shadow: var(--shadow-raised);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+.job-card.selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-mid), var(--shadow-card);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: inherit; font-weight: 600; font-size: 13px;
+  border-radius: 999px; padding: 7px 16px; cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.14s, border-color 0.14s, color 0.14s;
+  white-space: nowrap;
+}
+.btn-primary { background: var(--primary); color: var(--on-primary); box-shadow: var(--primary-glow); }
+.btn-primary:hover { background: var(--primary-hover); box-shadow: var(--primary-glow); }
+.btn-outline { background: transparent; color: var(--primary); border-color: var(--primary); }
+.btn-outline:hover { background: var(--primary-light); }
+.btn-ghost { background: transparent; color: var(--text-secondary); border-color: var(--border-strong); }
+.btn-ghost:hover { background: var(--surface-muted); color: var(--text-primary); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Score circle ──────────────────────────────────────────────────────── */
+.score-circle {
+  width: 48px; height: 48px; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  flex-shrink: 0; font-weight: 700;
+}
+
+/* ── Skill chip ────────────────────────────────────────────────────────── */
+.skill-chip {
+  background: var(--primary-light); color: var(--primary);
+  font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px;
+  border: 1px solid var(--primary-mid); white-space: nowrap;
+}
+
+/* ── Badge ─────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex; align-items: center;
+  font-size: 10px; font-weight: 700; padding: 2px 7px;
+  border-radius: 4px; letter-spacing: 0.03em; white-space: nowrap;
+}
+
+/* ── Toggle switch ─────────────────────────────────────────────────────── */
+.toggle-track {
+  width: 38px; height: 20px; border-radius: 11px; position: relative;
+  cursor: pointer; transition: background 0.2s; flex-shrink: 0;
+}
+.toggle-thumb {
+  position: absolute; top: 2px; width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; transition: left 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.30);
+}
+
+.section-header {
+  font-size: 11px; font-weight: 700; color: var(--text-secondary);
+  letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;
+}
+
+/* ── Tier colors (token-driven, theme-aware) ───────────────────────────── */
+.tier-s { background: var(--accent-gold-bg); color: var(--accent-gold); border: 1px solid var(--accent-gold-border); }
+.tier-a { background: var(--primary-light); color: var(--primary); border: 1px solid var(--primary-mid); }
+.tier-b { background: var(--teal-light); color: var(--teal); border: 1px solid var(--teal); }
+.tier-c { background: var(--surface-muted); color: var(--text-secondary); border: 1px solid var(--border); }
+
+/* ── Status pill helpers (theme-aware) ─────────────────────────────────── */
+.pill-success { background: var(--success-light); color: var(--success); border: 1px solid var(--success-border); }
+.pill-warning { background: var(--warning-light); color: var(--warning); border: 1px solid var(--warning-border); }
+.pill-danger  { background: var(--danger-light);  color: var(--danger);  border: 1px solid var(--danger-border); }
+.pill-neutral { background: var(--surface-muted);  color: var(--text-secondary); border: 1px solid var(--border); }
+.pill-gold    { background: var(--accent-gold-bg); color: var(--accent-gold); border: 1px solid var(--accent-gold-border); }
+.pill-primary { background: var(--primary-light); color: var(--primary); border: 1px solid var(--primary-mid); }
+.pill-teal    { background: var(--teal-light);    color: var(--teal);    border: 1px solid var(--teal); }
+.pill {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+}
+
+/* ── Animations ────────────────────────────────────────────────────────── */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeIn 0.22s ease forwards; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.spin { animation: spin 0.9s linear infinite; display: inline-flex; }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-muted) 25%, var(--border) 50%, var(--surface-muted) 75%);
+  background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 6px;
+}
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+
+/* ════════════════════════════════════════════════════════════════════════
+   Mobile / PWA — filters become a left drawer, job details a full-screen
+   bottom sheet. Desktop layout is untouched (these only fire ≤ 820px or via
+   the explicit .mobile-* wrappers the App renders on small screens).
+   ════════════════════════════════════════════════════════════════════════ */
+/* Note: the sticky TopNav header is z-index 200, so these overlays must sit
+   ABOVE it to fully cover the screen on mobile. */
+.mobile-backdrop {
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(8, 11, 18, 0.55);
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.18s ease forwards;
+}
+
+/* Left slide-in drawer that hosts the FilterSidebar on phones. */
+.mobile-drawer {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 301;
+  width: min(86vw, 330px);
+  background: var(--surface);
+  box-shadow: var(--shadow-panel);
+  display: flex; flex-direction: column;
+  overflow-y: auto;
+  animation: slideInLeft 0.22s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Full-screen sheet that hosts the JobDetailsPanel on phones. */
+.mobile-sheet {
+  position: fixed; inset: 0; z-index: 320;
+  background: var(--surface);
+  display: flex; flex-direction: column;
+  animation: slideInUp 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@keyframes slideInLeft { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes slideInUp   { from { transform: translateY(8%); opacity: 0.6; } to { transform: translateY(0); opacity: 1; } }
+
+/* Floating button row used to open Filters on mobile. */
+.mobile-toolbar {
+  display: flex; gap: 8px; align-items: center;
+  margin-bottom: 12px;
+}
+.mobile-toolbar button {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--surface); border: 1px solid var(--border-strong);
+  border-radius: 999px; padding: 8px 14px; cursor: pointer;
+  font-size: 13px; font-weight: 600; color: var(--text-primary);
+}
+
+/* Make tap targets comfortable on touch devices. */
+@media (max-width: 820px) {
+  :root { --nav-height: 96px; }
+  .btn { padding: 9px 16px; }
+  .job-card { padding: 14px; }
+}

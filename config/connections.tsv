@@ -1,0 +1,84 @@
+# Verified job boards: name	ats	spec	[engine]
+# Found by scripts/find_ats_browser.py / probe_jibe.py / probe_boards.py and
+# measured with scripts/verify_boards.py on 2026-10-01. Consumed by
+# scripts/build_catalog.py. Boards that answered but belong to a different
+# organisation (greenhouse "mercury", "national", "array", "aligned") are NOT here.
+Duke Energy	workday	dukeenergy.wd1/search
+Xcel Energy	workday	xcelenergy.wd1/External
+Ameren	workday	ameren.wd1/External
+Alliant Energy	workday	alliantenergy.wd1/alliant
+Portland General Electric	workday	portlandgeneral.wd5/pgn
+ERCOT	workday	ercot.wd1/ercot_careers
+PJM Interconnection	workday	pjm.wd5/pjmcareers
+American Transmission Company	workday	atcllc.wd5/atcllc
+Exelon	jibe	careers.exeloncorp.com
+Constellation Energy	jibe	jobs.constellationenergy.com
+PPL Corporation	jibe	careers.pplweb.com
+NYISO	greenhouse	nyiso
+Hitachi Energy	workday	hitachi.wd1/hitachi
+GE Vernova	workday	gevernova.wd5/Vernova_ExternalSite
+Schweitzer Engineering Laboratories	workday	selinc.wd1/SEL
+Eaton	eightfold	eaton/eaton.com
+Caterpillar	workday	cat.wd5/CaterpillarCareers
+Rockwell Automation	workday	rockwellautomation.wd1/External_Rockwell_Automation
+Regal Rexnord	workday	regalrexnord.wd1/Careers
+TRC Companies	jibe	careers.trccompanies.com
+MasTec	jibe	careers.mastec.com
+Kimley-Horn	icims	jobs-kimley-horn.icims.com
+Sargent & Lundy	icims	careers-sargentlundy.icims.com
+Syska Hennessy	greenhouse	syskahennessy
+Worley	eightfold	worley/worley.com
+Silicon Ranch	greenhouse	siliconranch
+Clearway Energy	greenhouse	clearway
+Intersect Power	lever	intersect
+Form Energy	ashby	formenergy
+CoreWeave	greenhouse	coreweave
+Crusoe	ashby	crusoe
+EdgeConneX	greenhouse	edgeconnex
+SpaceX	greenhouse	spacex
+Rocket Lab	greenhouse	rocketlab
+Rivian	jibe	careers.rivian.com
+Lucid Motors	greenhouse	lucidmotors
+Ford Motor Company	eightfold	ford/ford.com
+ChargePoint	greenhouse	chargepoint
+Zoox	lever	zoox
+Waymo	greenhouse	waymo
+Qualcomm	eightfold	qualcomm/qualcomm.com
+Keysight Technologies	jibe	jobs.keysight.com
+Ericsson	eightfold	ericsson/ericsson.com
+Viasat	jibe	careers.viasat.com
+Garmin	jibe	careers.garmin.com
+Infineon Technologies	eightfold	infineon/infineon.com
+American Electric Power	workday	aep.wd1/AEPCareerSite
+Vistra	workday	vst.wd5/vistra_careers
+AT&T	workday	att.wd1/ATTGeneral
+Analog Devices	workday	analogdevices.wd1/External
+Blue Origin	workday	blueorigin.wd5/BlueOrigin
+Boeing	workday	boeing.wd1/EXTERNAL_CAREERS
+Ciena	workday	ciena.wd5/Careers
+Curtiss-Wright	workday	curtisswright.wd1/CW_External_Career_Site
+CyrusOne	workday	cyrusone.wd1/CyrusOneCareerPortal
+GE Aerospace	workday	geaerospace.wd5/GE_ExternalSite
+HNTB	workday	hntb.wd5/HNTB_Careers
+Leidos	workday	leidos.wd5/External
+Moog	workday	moog.wd5/MOOG_External_Career_Site
+Motorola Solutions	workday	motorolasolutions.wd5/Careers
+Primoris	workday	prim.wd108/Primoris
+QTS Data Centers	workday	qtsdatacenters.wd5/qts
+Rosendin	workday	rosendin.wd1/Careers
+STV	workday	stvinc.wd5/stv
+T-Mobile	workday	tmobile.wd1/External
+Toyota North America	workday	toyota.wd503/TMNA
+Vantage Data Centers	workday	vantagedc.wd1/Vantage
+Verizon	workday	verizon.wd12/verizon-careers
+RTX	workday	globalhr.wd5/REC_RTX_Ext_Gateway
+Sierra Nevada Corporation	workday	snc.wd1/SNC_External_Career_Site
+Array Technologies	workday	arraytechinc.wd5/Array_Careers
+Aligned Data Centers	workday	aligneddc.wd12/aligneddc
+Archer Aviation	greenhouse	archer56
+Dewberry	icims	careers-dewberry.icims.com
+Joby Aviation	icims	careers-jobyaviation.icims.com
+Pattern Energy	icims	careers-patternenergy.icims.com
+EDF power solutions	icims	careers-edf-re.icims.com
+Lockheed Martin	eightfold	lockheedmartin/lockheedmartin.com
+Northrop Grumman	eightfold	ngc/ngc.com
