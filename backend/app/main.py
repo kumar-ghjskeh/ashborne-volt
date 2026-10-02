@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import logging
 import time
 from datetime import datetime, timedelta, timezone
@@ -2506,6 +2507,8 @@ def health():
         "status": "ok",
         "app": "ashborne-volt",
         "version": "1.0.0",
+        # Render sets RENDER_GIT_COMMIT; shows which commit is actually serving.
+        "commit": os.getenv("RENDER_GIT_COMMIT", "")[:7],
         "db": "ok" if db_ok else "unavailable",
         "ai": "enabled" if gemini_enabled() else "disabled",
         "push": "enabled" if settings.vapid_private_key else "disabled",
