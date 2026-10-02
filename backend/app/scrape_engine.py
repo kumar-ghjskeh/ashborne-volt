@@ -575,6 +575,10 @@ def reclassify_rows(companies: set[str] | None = None) -> dict[str, int]:
             job.relevance_score_label = score_to_label(score)
             job.relevance_reason = build_relevance_reason(title, desc, breakdown)
             job.role_flags_json = _json.dumps(classify_role_flags(title, desc))
+            # Rebuilt too: it embeds matched_keywords, so a stale keyword (from
+            # an older matcher) would otherwise live on in résumé matching.
+            from .resume_match import extract_job_skills
+            job.job_skills = ",".join(extract_job_skills(" ".join([title, desc, job.matched_keywords])))
             job.is_software_only = cat == "Software / Compiler"
             job.new_grad_fit = new_grad_fit_score(
                 level, job.is_senior, job.is_entry_level, job.is_candidate_friendly,
