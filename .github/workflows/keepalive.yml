@@ -1,0 +1,28 @@
+name: Keep API awake
+
+# Render's free web service sleeps after 15 minutes without traffic, and the
+# first request after that waits ~50 s for a cold start. Pinging /health every
+# 10 minutes during US daytime keeps résumé matching and Gemini responsive.
+# Free: the repository is public, so Actions minutes are unlimited. One always-on
+# service fits inside the Render workspace's monthly free hours.
+
+on:
+  schedule:
+    - cron: "*/10 11-23,0-5 * * *"   # 07:00–01:00 US Eastern
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - name: Ping /health
+        run: |
+          for i in 1 2 3; do
+            if curl -fsS -m 60 https://ashborne-volt-api.onrender.com/health; then exit 0; fi
+            sleep 10
+          done
+          echo "::warning::API did not answer /health"

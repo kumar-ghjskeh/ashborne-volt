@@ -53,10 +53,10 @@ reporting are on (Settings → Advanced Security).
 4. **Deploy**. Your site is `https://ashborne-volt.vercel.app` (if Vercel
    picked another name, set `CORS_ORIGINS` in Render to the real one).
 
-## 6. Uptime pinger (≈2 min)
+## 6. Keep-alive
 
-UptimeRobot → **+ New monitor** → HTTP(s) → `https://<render URL>/health` →
-every 5 minutes. Keeps the free API awake during the day.
+Handled by `.github/workflows/keepalive.yml` (pings `/health` every 10 min,
+07:00–01:00 ET). No UptimeRobot needed.
 
 ## Operations
 
