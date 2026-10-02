@@ -57,7 +57,7 @@ class Settings(BaseSettings):
     # "Generate" button; without it, the copy-prompt (Claude/ChatGPT) flow still
     # works fully. The model name can be overridden if Google rotates free models.
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-2.5-flash"
+    gemini_model: str = "gemini-3.8-flash"  # override with GEMINI_MODEL if Google rotates it
 
     # Scraper
     scraper_user_agent: str = (
