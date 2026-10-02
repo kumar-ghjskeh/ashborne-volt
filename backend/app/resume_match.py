@@ -107,6 +107,9 @@ _AREA_PROJECT_HINTS = {
 
 
 def _short_title(proj: str) -> str:
+    # Bounded input: the profile comes from the caller, and the split pattern is
+    # quadratic on long whitespace runs.
+    proj = (proj or "")[:200]
     t = re.split(r"\s+[—:]|\s-\s|\(", proj, 1)[0].strip()
     return (t or proj)[:60].strip()
 

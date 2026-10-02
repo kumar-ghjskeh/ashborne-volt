@@ -113,7 +113,10 @@ def process_apply_url(raw_url: str, ats_platform: str, company_name: str = "", c
     # Workday: a per-job deep link (…/job/Location/Title_JR123) lands directly on
     # the posting — exactly like LinkedIn — and is stable, so keep it. Only fall
     # back to the careers page for generic/non-job Workday URLs.
-    if ats_platform == 'workday' or 'myworkdayjobs.com' in cleaned:
+    # Host check, not a substring test: '…myworkdayjobs.com' could appear in a
+    # query string or path of an unrelated URL.
+    host = (urlparse(cleaned).hostname or '').lower()
+    if ats_platform == 'workday' or host == 'myworkdayjobs.com' or host.endswith('.myworkdayjobs.com'):
         if '/job/' in cleaned and not _is_broken_workday_url(cleaned):
             return ApplyURLResult(
                 safe_apply_url=cleaned,

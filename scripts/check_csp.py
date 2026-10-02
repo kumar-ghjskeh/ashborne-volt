@@ -19,7 +19,9 @@ cfg = json.loads((ROOT / "frontend" / "vercel.json").read_text(encoding="utf-8")
 csp = next(h["value"] for block in cfg["headers"] for h in block["headers"]
            if h["key"] == "Content-Security-Policy")
 
-inline = re.findall(r"<script>(.*?)</script>", html, re.S)
+# Inline scripts only (no src=); tolerant of attributes and `</script >`.
+inline = [body for attrs, body in re.findall(r"<script\b([^>]*)>(.*?)</script\s*>", html, re.S | re.I)
+          if "src=" not in attrs.lower()]
 missing = []
 for body in inline:
     digest = "sha256-" + base64.b64encode(hashlib.sha256(body.encode()).digest()).decode()

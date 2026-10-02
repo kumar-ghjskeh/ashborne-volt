@@ -18,6 +18,7 @@ from .oracle import OracleHcmScraper
 from .phenom import PhenomScraper
 from .radancy import RadancyScraper
 from .smartrecruiters import SmartRecruitersScraper
+from .successfactors import SuccessFactorsScraper
 from .workday import WorkdayScraper
 
 SCRAPER_MAP: dict[str, type[BaseScraper]] = {
@@ -27,6 +28,7 @@ SCRAPER_MAP: dict[str, type[BaseScraper]] = {
     "workday": WorkdayScraper,
     "icims": ICIMSScraper,
     "jibe": JibeScraper,
+    "successfactors": SuccessFactorsScraper,
     "amazon": AmazonScraper,
     "smartrecruiters": SmartRecruitersScraper,
     "eightfold": EightfoldScraper,

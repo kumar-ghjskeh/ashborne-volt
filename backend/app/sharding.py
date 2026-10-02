@@ -26,7 +26,7 @@ from urllib.parse import urlparse
 from .config import load_all_companies
 
 # Rough relative cost of one company per platform (detail fetches dominate).
-_COST = {"workday": 3, "oracle": 2, "eightfold": 2, "icims": 2, "phenom": 2, "jobs2web": 2}
+_COST = {"workday": 3, "successfactors": 2, "oracle": 2, "eightfold": 2, "icims": 2, "phenom": 2, "jobs2web": 2}
 TARGET_COST_PER_SHARD = 36
 MAX_SHARDS = 16
 

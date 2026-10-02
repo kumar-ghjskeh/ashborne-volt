@@ -8,6 +8,7 @@ import json
 import re
 import ssl
 import urllib.request
+from urllib.parse import urlparse
 
 from playwright.async_api import async_playwright
 
@@ -112,33 +113,38 @@ async def discover(ctx, name, url):
         if not m:
             return
         u = req.url
-        if "greenhouse" in u:
+        host = (urlparse(u).hostname or "").lower()
+
+        def on(domain: str) -> bool:
+            return host == domain or host.endswith("." + domain)
+
+        if on("greenhouse.io"):
             slug = m.group(2) or m.group(3)
             if slug and slug not in ("embed",):
                 hits.add(("greenhouse", slug))
-        elif "lever.co" in u:
+        elif on("lever.co"):
             slug = m.group(4) or m.group(5)
             if slug:
                 hits.add(("lever", slug))
-        elif "ashbyhq" in u:
+        elif on("ashbyhq.com"):
             slug = m.group(6) or m.group(7)
             if slug and slug not in ("api",):
                 hits.add(("ashby", slug))
-        elif "myworkdayjobs" in u:
+        elif on("myworkdayjobs.com"):
             hits.add(("workday", f"{m.group(8)}.{m.group(9)}/{m.group(10)}"))
-        elif "smartrecruiters" in u:
+        elif on("smartrecruiters.com"):
             hits.add(("smartrecruiters", m.group(11)))
-        elif "icims.com" in u:
+        elif on("icims.com"):
             hits.add(("icims", f"{m.group(12)}.icims.com"))
-        elif "avature.net" in u:
+        elif on("avature.net"):
             hits.add(("avature", m.group(13)))
-        elif "eightfold.ai" in u:
+        elif on("eightfold.ai"):
             hits.add(("eightfold", m.group(14)))
-        elif "my.site.com" in u:
+        elif on("my.site.com"):
             hits.add(("salesforce(no adapter)", f"{m.group(15)}.my.site.com"))
-        elif "phenompeople.com" in u:
+        elif on("phenompeople.com"):
             hits.add(("phenom", m.group(16)))
-        elif "jobs2web.com" in u:
+        elif on("jobs2web.com"):
             hits.add(("jobs2web", m.group(17)))
 
     page.on("request", on_request)

@@ -50,6 +50,8 @@ def cfg_for(name: str, ats: str, spec: str) -> dict:
     elif ats == "eightfold":
         tenant, domain = spec.split("/", 1)
         c.update(eightfold_tenant=tenant, eightfold_domain=domain)
+    elif ats == "successfactors":
+        c["successfactors_host"] = spec
     elif ats == "jibe":
         c["jibe_host"] = spec
     elif ats == "icims":

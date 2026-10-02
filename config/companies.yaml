@@ -87,8 +87,9 @@ companies:
     hq: "Melbourne, FL"
     priority: "A"
     careers_url: "https://careers.l3harris.com/"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "jobs.l3harris.com"
+    enabled: true
 
   - name: "General Dynamics"
     sector: "Aerospace & Defense"
@@ -515,8 +516,9 @@ companies:
     hq: "Overland Park, KS"
     priority: "S"
     careers_url: "https://www.bv.com/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.bv.com"
+    enabled: true
 
   - name: "Sargent & Lundy"
     sector: "EPC & Consulting"
@@ -796,8 +798,9 @@ companies:
     hq: "Andover, MA"
     priority: "C"
     careers_url: "https://www.vicorpower.com/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.vicorpower.com"
+    enabled: true
 
   - name: "Advanced Energy"
     sector: "Electronics & Semiconductors"
@@ -886,8 +889,9 @@ companies:
     hq: "Shelton, CT"
     priority: "A"
     careers_url: "https://www.hubbell.com/hubbell/en/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.hubbell.com"
+    enabled: true
 
   - name: "Schweitzer Engineering Laboratories"
     sector: "Grid & Power OEM"
@@ -943,8 +947,9 @@ companies:
     hq: "Alpharetta, GA"
     priority: "B"
     careers_url: "https://www.landisgyr.com/careers/"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.landisgyr.com"
+    enabled: true
 
   - name: "Generac"
     sector: "Grid & Power OEM"
@@ -991,8 +996,9 @@ companies:
     hq: "Carrollton, GA"
     priority: "B"
     careers_url: "https://www.southwire.com/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.southwire.com"
+    enabled: true
 
   - name: "Powell Industries"
     sector: "Grid & Power OEM"
@@ -1124,8 +1130,9 @@ companies:
     hq: "Greenwood, IN"
     priority: "C"
     careers_url: "https://www.us.endress.com/en/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.endress.com"
+    enabled: true
 
   # ── RF & Communications ───────────────────────────────────────────────
   - name: "Qualcomm"
@@ -1145,8 +1152,9 @@ companies:
     hq: "Greensboro, NC"
     priority: "A"
     careers_url: "https://careers.qorvo.com/"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.qorvo.com"
+    enabled: true
 
   - name: "Skyworks Solutions"
     sector: "RF & Communications"
@@ -1291,8 +1299,9 @@ companies:
     hq: "Hickory, NC"
     priority: "C"
     careers_url: "https://jobs.commscope.com/"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "jobs.commscope.com"
+    enabled: true
 
   - name: "Mercury Systems"
     sector: "RF & Communications"
@@ -1370,8 +1379,9 @@ companies:
     hq: "Washington, DC"
     priority: "B"
     careers_url: "https://careers.amtrak.com/"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.amtrak.com"
+    enabled: true
 
   # ── Renewables & Storage ──────────────────────────────────────────────
   - name: "Invenergy"
@@ -1398,8 +1408,9 @@ companies:
     hq: "Austin, TX"
     priority: "A"
     careers_url: "https://us.rwe.com/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "jobs.rwe.com"
+    enabled: true
 
   - name: "EDF power solutions"
     sector: "Renewables & Storage"
@@ -1522,8 +1533,9 @@ companies:
     hq: "Houston, TX"
     priority: "C"
     careers_url: "https://www.wartsila.com/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.wartsila.com"
+    enabled: true
 
   - name: "Clearway Energy"
     sector: "Renewables & Storage"
@@ -1560,8 +1572,9 @@ companies:
     hq: "Denver, CO"
     priority: "C"
     careers_url: "https://lightsourcebp.com/us/careers/"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.lightsourcebp.com"
+    enabled: true
 
   # ── Utility ───────────────────────────────────────────────────────────
   - name: "Duke Energy"
@@ -1582,8 +1595,9 @@ companies:
     hq: "Richmond, VA"
     priority: "A"
     careers_url: "https://careers.dominionenergy.com/"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.dominionenergy.com"
+    enabled: true
 
   - name: "Southern Company"
     sector: "Utility"
@@ -1644,8 +1658,9 @@ companies:
     hq: "Juno Beach, FL"
     priority: "S"
     careers_url: "https://www.nexteraenergy.com/careers.html"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "jobs.nexteraenergy.com"
+    enabled: true
 
   - name: "Entergy"
     sector: "Utility"
@@ -1653,8 +1668,9 @@ companies:
     hq: "New Orleans, LA"
     priority: "B"
     careers_url: "https://www.entergy.com/careers/"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "jobs.entergy.com"
+    enabled: true
 
   - name: "FirstEnergy"
     sector: "Utility"
@@ -1708,8 +1724,9 @@ companies:
     hq: "Houston, TX"
     priority: "B"
     careers_url: "https://www.centerpointenergy.com/en-us/corporate/about-us/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.centerpointenergy.com"
+    enabled: true
 
   - name: "Ameren"
     sector: "Utility"
@@ -1750,8 +1767,9 @@ companies:
     hq: "Milwaukee, WI"
     priority: "B"
     careers_url: "https://www.wecenergygroup.com/careers/"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.wecenergygroup.com"
+    enabled: true
 
   - name: "DTE Energy"
     sector: "Utility"
@@ -1759,8 +1777,9 @@ companies:
     hq: "Detroit, MI"
     priority: "B"
     careers_url: "https://www.dteenergy.com/us/en/business/about-us/careers.html"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.dteenergy.com"
+    enabled: true
 
   - name: "Consumers Energy"
     sector: "Utility"
@@ -1768,8 +1787,9 @@ companies:
     hq: "Jackson, MI"
     priority: "B"
     careers_url: "https://www.consumersenergy.com/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.consumersenergy.com"
+    enabled: true
 
   - name: "Southern California Edison"
     sector: "Utility"
@@ -1786,8 +1806,9 @@ companies:
     hq: "Oakland, CA"
     priority: "A"
     careers_url: "https://jobs.pge.com/"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.pge.com"
+    enabled: true
 
   - name: "San Diego Gas & Electric"
     sector: "Utility"
@@ -1813,8 +1834,9 @@ companies:
     hq: "Newark, NJ"
     priority: "B"
     careers_url: "https://www.pseg.com/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "jobs.pseg.com"
+    enabled: true
 
   - name: "Avangrid"
     sector: "Utility"
@@ -1840,8 +1862,9 @@ companies:
     hq: "Phoenix, AZ"
     priority: "B"
     careers_url: "https://www.aps.com/en/About/Careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.aps.com"
+    enabled: true
 
   - name: "Portland General Electric"
     sector: "Utility"
@@ -1861,8 +1884,9 @@ companies:
     hq: "Bellevue, WA"
     priority: "C"
     careers_url: "https://www.pse.com/en/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "jobs.pse.com"
+    enabled: true
 
   - name: "Idaho Power"
     sector: "Utility"
@@ -1888,8 +1912,9 @@ companies:
     hq: "Oklahoma City, OK"
     priority: "C"
     careers_url: "https://www.oge.com/wps/portal/ord/who-we-are/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "jobs.oge.com"
+    enabled: true
 
   - name: "Duquesne Light"
     sector: "Utility"
@@ -1915,8 +1940,9 @@ companies:
     hq: "Phoenix, AZ"
     priority: "C"
     careers_url: "https://www.srpnet.com/about/careers"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "successfactors"
+    successfactors_host: "careers.srpnet.com"
+    enabled: true
 
   - name: "Vistra"
     sector: "Utility"

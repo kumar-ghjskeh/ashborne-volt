@@ -48,6 +48,8 @@ def adapter_keys(ats: str, spec: str) -> list[tuple[str, str]]:
     if ats == "eightfold":
         tenant, domain = spec.split("/", 1)
         return [("eightfold_tenant", tenant), ("eightfold_domain", domain)]
+    if ats == "successfactors":
+        return [("successfactors_host", spec)]
     if ats == "smartrecruiters":
         return [("smartrecruiters_company", spec)]
     raise ValueError(f"unknown ats {ats}")
