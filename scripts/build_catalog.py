@@ -5,13 +5,14 @@ in config/candidates.tsv becomes a directory entry; those with a verified board
 in config/connections.tsv are enabled with their adapter keys. After that,
 companies.yaml is the source of truth and is edited by hand.
 
-connections.tsv columns:  name  ats  spec  [engine]
+connections.tsv columns:  name  ats  spec  [engine]  [extra JSON object]
     workday  tenant.wdN/Site       greenhouse  board       lever  company
     ashby    org                   jibe        host        icims  host
     eightfold tenant/domain
 """
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -52,6 +53,8 @@ def adapter_keys(ats: str, spec: str) -> list[tuple[str, str]]:
         return [("successfactors_host", spec)]
     if ats == "smartrecruiters":
         return [("smartrecruiters_company", spec)]
+    if ats == "amazon":
+        return []
     raise ValueError(f"unknown ats {ats}")
 
 
@@ -72,11 +75,14 @@ def main() -> None:
             c = conns[name]
             ats, spec = c[1], c[2]
             engine = c[3] if len(c) > 3 else ""
+            extra = json.loads(c[4]) if len(c) > 4 and c[4] else {}
             lines.append(f"    ats_platform: {q(ats)}")
             for k, v in adapter_keys(ats, spec):
                 lines.append(f"    {k}: {q(v)}")
             if engine:
                 lines.append(f"    engine: {q(engine)}")
+            for k, v in extra.items():
+                lines.append(f"    {k}: {json.dumps(v, ensure_ascii=False)}")
             lines.append("    enabled: true")
         else:
             lines += ["    ats_platform: \"generic\"", "    enabled: false"]

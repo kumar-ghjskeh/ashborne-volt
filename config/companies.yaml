@@ -497,8 +497,9 @@ companies:
     hq: "Seattle, WA"
     priority: "S"
     careers_url: "https://www.amazon.jobs/"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "amazon"
+    search_keywords: ["data center electrical engineer", "electrical engineer", "power engineer", "controls engineer"]
+    enabled: true
 
   # ── EPC & Consulting ──────────────────────────────────────────────────
   - name: "Burns & McDonnell"
@@ -1043,8 +1044,11 @@ companies:
     hq: "Cary, NC"
     priority: "S"
     careers_url: "https://careers.abb/global/en"
-    ats_platform: "generic"
-    enabled: false
+    ats_platform: "workday"
+    workday_tenant: "abb"
+    workday_instance: "wd3"
+    workday_career_site: "External_Career_Page"
+    enabled: true
 
   - name: "Rockwell Automation"
     sector: "Industrial & Automation"
