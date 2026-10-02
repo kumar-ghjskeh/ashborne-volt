@@ -4,11 +4,11 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Any
+from typing import Annotated, Any
 
 import yaml
 from pydantic import field_validator
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 BASE_DIR = Path(__file__).resolve().parents[2]  # repo root
 CONFIG_DIR = BASE_DIR / "config"
@@ -24,7 +24,10 @@ class Settings(BaseSettings):
     # API
     api_host: str = "0.0.0.0"
     api_port: int = 8000
-    cors_origins: list[str] = ["http://localhost:5173", "http://localhost:3000"]
+    # NoDecode: a plain comma-separated value ("https://a.app,https://b.app") is
+    # split by the validator below instead of being parsed as JSON, which crashed
+    # the API at startup on Render.
+    cors_origins: Annotated[list[str], NoDecode] = ["http://localhost:5173", "http://localhost:3000"]
 
     # Optional Notion
     notion_api_key: str = ""
