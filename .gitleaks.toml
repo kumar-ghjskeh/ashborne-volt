@@ -1,0 +1,13 @@
+# Gitleaks config: the default rules, plus one narrow allowlist.
+#
+# Browser-storage key NAMES (e.g. `const INSTRUCTIONS_KEY = 'volt-tailor-instructions-v1'`)
+# match the generic-api-key rule because the variable ends in _KEY. They are
+# localStorage slot names, not credentials. Only values of exactly that shape
+# are allowed — anything else still fails the scan.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "localStorage key names (volt-*-vN), not secrets"
+regexes = ['''volt-[a-z-]+-v\d+''']
