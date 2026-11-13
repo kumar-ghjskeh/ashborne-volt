@@ -61,7 +61,7 @@ pytz==2026.4
 pywebpush==2.5.0
 PyYAML==6.0.3
 requests==2.34.2
-soupsieve==2.10
+soupsieve==4.0
 SQLAlchemy==2.0.54
 sqlmodel==0.0.47
 starlette==1.7.0
